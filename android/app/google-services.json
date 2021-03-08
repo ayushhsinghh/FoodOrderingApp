@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "642310568382",
+    "project_id": "mytaste-a57bd",
+    "storage_bucket": "mytaste-a57bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642310568382:android:6a50188e88a44c548e21ef",
+        "android_client_info": {
+          "package_name": "com.hashtraces"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642310568382-pkkfbb0en8l6shure9ta2av8a1snarqc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmJGI2cfQbuw185ym3hFDuSsVF7zQ-V6I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642310568382-pkkfbb0en8l6shure9ta2av8a1snarqc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
