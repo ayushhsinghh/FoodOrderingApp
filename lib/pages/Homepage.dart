@@ -1,6 +1,9 @@
+import 'dart:math';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:mytaste/model/dummypics.dart';
 import 'package:mytaste/model/topRestaurant.dart';
 import 'package:mytaste/service/httpService.dart';
 import 'package:mytaste/utils/locator.dart';
@@ -8,7 +11,6 @@ import 'package:shimmer/shimmer.dart';
 import 'homepage/Hometitle.dart';
 import 'homepage/homeheading.dart';
 import 'package:velocity_x/velocity_x.dart';
-// import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   @override
@@ -19,15 +21,23 @@ class _HomePageState extends State<HomePage> {
   Position location;
   String latitude = "";
   String longitude = "";
-  HttpService http;
+  HttpService http = HttpService();
+  var rng = new Random();
   var topRestaurant = TopRestaurant();
+  var dummypics = Dummypics();
   @override
   void initState() {
     super.initState();
     getlocation();
-    http = HttpService();
     getUser();
-    // getData();
+    getdummypics();
+  }
+
+  getdummypics() async {
+    await Future.delayed(Duration(seconds: 2));
+    final jsonfile = await rootBundle.loadString("assets/json/dummypics.json");
+    dummypics = dummypicsFromJson(jsonfile);
+    setState(() {});
   }
 
   // Funtion to get Location Latitute and Longitude
@@ -64,48 +74,114 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  // Http Request
-  // var url = Uri.https('developers.zomato.com', '/api/v2.1/search',
-  //     );
-  // var header = {
-  //   "user-key": "2e2bf75126e32940a0f5c1ee00b96dea",
-  //   "Accept": "application/json"
-  // };
-
-  // // Await the http get response, then decode the json-formatted response.
-  // void getData() async {
-  //   var topRestaurant;
-  //   var response = await http.get(url, headers: header);
-  //   if (response.statusCode == 200) {
-  //     topRestaurant = topRestaurantFromJson(response.body);
-  //     print(topRestaurant.restaurants[0].restaurant.name);
-  //   } else {
-  //     print('Request failed with status: ${response.statusCode}.');
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
             child: Container(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 20),
           HomeHeading(),
           HomeTitle(),
           topRestaurant.restaurants != null &&
                   topRestaurant.restaurants.isNotEmpty
-              ? Expanded(
-                  flex: 3,
-                  child: NearByRestaurant(
-                    topRestaurant: topRestaurant,
-                  ),
-                )
+              ? Expanded(child: itemgridview(topRestaurant))
               : homepageshimmer(),
         ],
       ),
     )));
+  }
+
+  GridView itemgridview(TopRestaurant topRestaurant) {
+    return GridView.builder(
+        itemCount: topRestaurant.restaurants.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+        ),
+        itemBuilder: (context, i) {
+          return itemCard(topRestaurant.restaurants[i].restaurant)
+              .py12()
+              .px24();
+        });
+  }
+
+  Container itemCard(RestaurantRestaurant restaurant) {
+    return Container(
+      width: 160,
+      height: 200,
+      decoration: BoxDecoration(
+        color: Colors.grey,
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(16),
+            bottomLeft: Radius.circular(16),
+            bottomRight: Radius.circular(16),
+            topRight: Radius.circular(6)),
+      ),
+      child: Stack(
+        alignment: AlignmentDirectional.topCenter,
+        children: [
+          Positioned(
+            right: 0,
+            child: Stack(
+              alignment: AlignmentDirectional.topEnd,
+              children: [
+                Container(
+                  padding: EdgeInsets.all(0),
+                  decoration: BoxDecoration(
+                    // color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  width: 35,
+                  height: 35,
+                ),
+                Icon(
+                  Icons.bookmark_border_outlined,
+                  size: 30,
+                ),
+              ],
+            ),
+          ),
+          Align(
+            child: Column(
+              children: [
+                Container(
+                  width: 100,
+                  height: 100,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: restaurant.thumb != ""
+                          ? DecorationImage(
+                              fit: BoxFit.fill,
+                              image: NetworkImage(restaurant.thumb),
+                            )
+                          : DecorationImage(
+                              fit: BoxFit.fill,
+                              image: NetworkImage(
+                                  dummypics.dummyFoodPics[rng.nextInt(9)]),
+                            )),
+                ).p12(),
+                Text(
+                  restaurant.name.length >= 20
+                      ? "${restaurant.name.substring(0, 18)}..."
+                      : restaurant.name,
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
+                Text(
+                  "Food",
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   SizedBox homepageshimmer() {
@@ -152,34 +228,34 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class NearByRestaurant extends StatelessWidget {
-  final TopRestaurant topRestaurant;
-  const NearByRestaurant({Key key, this.topRestaurant})
-      : assert(topRestaurant != null),
-        super(key: key);
+// class NearByRestaurant extends StatelessWidget {
+//   final TopRestaurant topRestaurant;
+//   const NearByRestaurant({Key key, this.topRestaurant})
+//       : assert(topRestaurant != null),
+//         super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      itemCount: topRestaurant.restaurants.length,
-      itemBuilder: (BuildContext context, i) {
-        return ListTile(
-          title: Text(topRestaurant.restaurants[i].restaurant.name.toString()),
-          subtitle: Text(topRestaurant
-              .restaurants[i].restaurant.location.address
-              .toString()),
-          leading: topRestaurant.restaurants[i].restaurant.thumb == ""
-              ? Container(
-                  child: Icon(
-                  Icons.fastfood,
-                  size: 50,
-                ))
-              : Container(
-                  child: Image.network(
-                      topRestaurant.restaurants[i].restaurant.thumb)),
-        );
-      },
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListView.builder(
+//       shrinkWrap: true,
+//       itemCount: topRestaurant.restaurants.length,
+//       itemBuilder: (BuildContext context, i) {
+//         return ListTile(
+//           title: Text(topRestaurant.restaurants[i].restaurant.name.toString()),
+//           subtitle: Text(topRestaurant
+//               .restaurants[i].restaurant.location.address
+//               .toString()),
+//           leading: topRestaurant.restaurants[i].restaurant.thumb == ""
+//               ? Container(
+//                   child: Icon(
+//                   Icons.fastfood,
+//                   size: 50,
+//                 ))
+//               : Container(
+//                   child: Image.network(
+//                       topRestaurant.restaurants[i].restaurant.thumb)),
+//         );
+//       },
+//     );
+//   }
+// }
