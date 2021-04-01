@@ -24,11 +24,13 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  dio: ^4.0.0
   flutter_riverpod: ^0.13.0
   geolocator: ^7.0.1
   google_fonts: ^2.0.0
   http: ^0.13.0
   velocity_x: ^1.4.1
+  shimmer: ^1.1.2
 
 dev_dependencies:
   flutter_test:
