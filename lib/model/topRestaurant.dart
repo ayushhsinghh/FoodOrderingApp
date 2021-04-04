@@ -102,7 +102,7 @@ class RestaurantRestaurant {
 
   final R r;
   final String apikey;
-  final int id;
+  final id;
   final String name;
   final String url;
   final Location location;
@@ -349,8 +349,8 @@ class HasMenuStatus {
     this.takeaway,
   });
 
-  final int delivery;
-  final int takeaway;
+  final delivery;
+  final takeaway;
 
   factory HasMenuStatus.fromJson(Map<String, dynamic> json) => HasMenuStatus(
         delivery: json["delivery"],
