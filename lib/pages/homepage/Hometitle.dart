@@ -6,7 +6,7 @@ class HomeTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 110,
+      height: 100,
       alignment: Alignment.topLeft,
       // color: Colors.red,
       child: Padding(
@@ -19,13 +19,13 @@ class HomeTitle extends StatelessWidget {
           TextSpan(
               text: 'Find good \n',
               style: TextStyle(
-                fontSize: 40,
+                fontSize: 30,
                 color: Colors.black,
               )),
           TextSpan(
             text: "Food around you",
             style: TextStyle(
-              fontSize: 40,
+              fontSize: 30,
               color: Colors.black,
             ),
           ),

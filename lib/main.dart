@@ -7,6 +7,8 @@ void main() {
   runApp(MyApp());
 }
 
+GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,6 +19,7 @@ class MyApp extends StatelessWidget {
           textTheme: GoogleFonts.latoTextTheme(
             Theme.of(context).textTheme,
           )),
+      navigatorKey: navigatorKey,
       home: HomePage(),
     );
   }

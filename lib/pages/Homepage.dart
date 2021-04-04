@@ -18,17 +18,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Position location;
-  String latitude = "";
-  String longitude = "";
   HttpService http = HttpService();
   var topRestaurant = TopRestaurant();
   var dummypics = Dummypics();
   @override
   void initState() {
     super.initState();
-    getlocation();
-    getRestData(longitude, latitude);
+    getRestData();
     getdummypics();
   }
 
@@ -41,28 +37,32 @@ class _HomePageState extends State<HomePage> {
 
   // Funtion to get Location Latitute and Longitude
   getlocation() async {
+    Position location;
     location = await determinePosition();
 
     if (location == null) {
       return "No Value";
     }
-    latitude = location.latitude.toString() ?? "25.3553815";
-    longitude = location.longitude.toString() ?? "82.9621772";
-    setState(() {});
+
+    return location;
   }
 
-  Future getRestData(String lon, String lat) async {
+  // Function to get Restuarant Data from API
+  Future getRestData() async {
+    Position location;
+
+    location = await getlocation();
     Response response;
     try {
       response = await http.getRequest(endPoint: "/search", query: {
-        'lon': lon,
-        'lat': lat,
+        'lon': location.longitude.toString() ?? 25.3553055,
+        'lat': location.latitude.toString() ?? 82.962177,
         'collection_id': '1',
       });
 
       if (response.statusCode == 200) {
         setState(() {
-          // print("hello");
+          // print("$longitude and $latitude ");
           topRestaurant = topRestaurantFromJson(response.toString());
           // print(topRestaurant.restaurants[0].restaurant.name);
         });

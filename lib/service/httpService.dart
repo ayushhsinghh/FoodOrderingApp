@@ -1,7 +1,15 @@
+import 'package:alice/alice.dart';
 import 'package:dio/dio.dart';
+import 'package:mytaste/main.dart';
 
 class HttpService {
   Dio _dio;
+  Alice _alice = Alice(
+      showNotification: true,
+      showInspectorOnShake: true,
+      darkTheme: false,
+      navigatorKey: navigatorKey,
+      maxCallsCount: 1000);
 
   String baseURL = "https://developers.zomato.com/api/v2.1";
   var header = {
@@ -18,6 +26,7 @@ class HttpService {
     );
 
     // initializeInterceptors();
+    _dio.interceptors.add(_alice.getDioInterceptor());
   }
 
   Future<Response> getRequest(
