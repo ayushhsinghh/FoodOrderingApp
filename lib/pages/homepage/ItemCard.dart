@@ -33,7 +33,7 @@ Material itemCard(RestaurantRestaurant restaurant, Dummypics dummypics) {
         alignment: AlignmentDirectional.topCenter,
         children: [
           Positioned(
-            right: 0,
+            right: 3,
             child: Stack(
               alignment: AlignmentDirectional.topEnd,
               children: [
@@ -47,8 +47,10 @@ Material itemCard(RestaurantRestaurant restaurant, Dummypics dummypics) {
                   height: 35,
                 ),
                 Icon(
-                  Icons.bookmark_border_outlined,
-                  size: 25,
+                  // !! Wishlist Here
+                  Icons.favorite_border_outlined,
+                  size: 20,
+                  color: Colors.grey,
                 ),
               ],
             ),
@@ -85,9 +87,7 @@ Material itemCard(RestaurantRestaurant restaurant, Dummypics dummypics) {
                   restaurant.name.length >= 20
                       ? "${restaurant.name.substring(0, 18)}..."
                       : restaurant.name,
-                  style: TextStyle(
-                    fontSize: 15,
-                  ),
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
                 ),
                 Text(
                   restaurant.location.locality.length >= 10

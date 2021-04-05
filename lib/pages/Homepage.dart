@@ -8,9 +8,10 @@ import 'package:mytaste/service/httpService.dart';
 import 'package:mytaste/utils/locator.dart';
 import 'homepage/HomePageShimmer.dart';
 import 'homepage/Hometitle.dart';
-import 'homepage/ItemCard.dart';
 import 'homepage/homeheading.dart';
 import 'package:velocity_x/velocity_x.dart';
+
+import 'homepage/itemGridView.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -21,11 +22,18 @@ class _HomePageState extends State<HomePage> {
   HttpService http = HttpService();
   var topRestaurant = TopRestaurant();
   var dummypics = Dummypics();
+  ScrollController _scrollController = new ScrollController();
+  bool closeTop = false;
   @override
   void initState() {
     super.initState();
     getRestData();
     getdummypics();
+    _scrollController.addListener(() {
+      setState(() {
+        closeTop = _scrollController.offset > 50;
+      });
+    });
   }
 
   getdummypics() async {
@@ -84,26 +92,26 @@ class _HomePageState extends State<HomePage> {
         children: [
           SizedBox(height: 20),
           HomeHeading(),
-          HomeTitle(),
+          Divider(),
+          HomeTitle(
+            closeTop: closeTop,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 24, bottom: 12),
+            child: Text("Trending Restaurants",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                )),
+          ),
           topRestaurant.restaurants != null &&
                   topRestaurant.restaurants.isNotEmpty
-              ? Expanded(child: itemgridview(topRestaurant))
+              ? Expanded(
+                  child:
+                      itemgridview(topRestaurant, dummypics, _scrollController))
               : homepageshimmer(),
         ],
       ),
     )));
-  }
-
-  GridView itemgridview(TopRestaurant topRestaurant) {
-    return GridView.builder(
-        itemCount: topRestaurant.restaurants.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-        ),
-        itemBuilder: (context, i) {
-          return itemCard(topRestaurant.restaurants[i].restaurant, dummypics)
-              .py12()
-              .px24();
-        });
   }
 }

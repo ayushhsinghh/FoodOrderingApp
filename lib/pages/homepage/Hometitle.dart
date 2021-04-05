@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class HomeTitle extends StatelessWidget {
-  const HomeTitle({Key key}) : super(key: key);
+  final bool closeTop;
+  const HomeTitle({Key key, this.closeTop}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 100,
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 200),
+      height: closeTop ? 0 : 100,
       alignment: Alignment.topLeft,
       // color: Colors.red,
       child: Padding(
@@ -19,13 +21,15 @@ class HomeTitle extends StatelessWidget {
           TextSpan(
               text: 'Find good \n',
               style: TextStyle(
-                fontSize: 30,
+                fontSize: 35,
+                fontWeight: FontWeight.w700,
                 color: Colors.black,
               )),
           TextSpan(
             text: "Food around you",
             style: TextStyle(
-              fontSize: 30,
+              fontSize: 35,
+              fontWeight: FontWeight.w700,
               color: Colors.black,
             ),
           ),
