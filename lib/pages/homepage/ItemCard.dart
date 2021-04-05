@@ -7,7 +7,7 @@ import 'package:velocity_x/velocity_x.dart';
 
 var rng = new Random();
 
-Material itemCard(RestaurantRestaurant restaurant, Dummypics dummypics) {
+Material itemCard(RestaurantRestaurant restaurant, String dummypics) {
   return Material(
     shadowColor: Colors.white70,
     borderRadius: BorderRadius.only(
@@ -58,10 +58,10 @@ Material itemCard(RestaurantRestaurant restaurant, Dummypics dummypics) {
           Align(
             child: Column(
               children: [
+                // ! Circle Image Here
                 CachedNetworkImage(
-                  imageUrl: restaurant.thumb != ""
-                      ? restaurant.thumb
-                      : dummypics.dummyFoodPics[rng.nextInt(9)],
+                  imageUrl:
+                      restaurant.thumb != "" ? restaurant.thumb : dummypics,
                   imageBuilder: (context, imageProvider) => Container(
                     width: 100,
                     height: 100,
