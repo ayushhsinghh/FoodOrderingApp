@@ -9,8 +9,6 @@ import 'package:mytaste/utils/locator.dart';
 import 'homepage/HomePageShimmer.dart';
 import 'homepage/Hometitle.dart';
 import 'homepage/homeheading.dart';
-import 'package:velocity_x/velocity_x.dart';
-
 import 'homepage/itemGridView.dart';
 
 class HomePage extends StatefulWidget {
@@ -84,34 +82,119 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    GlobalKey<ScaffoldState> scaffolKey = GlobalKey<ScaffoldState>();
     return Scaffold(
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              UserAccountsDrawerHeader(
+                  currentAccountPicture: CircleAvatar(
+                    child: Icon(
+                      Icons.face,
+                      size: 40,
+                    ),
+                  ),
+                  accountName: Text("Ayush Singh"),
+                  accountEmail: Text("Ayushsingh1525@gmail.com")),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListTile(
+                  leading: Icon(Icons.account_box),
+                  title: Text("Profile",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      )),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListTile(
+                  leading: Icon(Icons.shopping_bag),
+                  title: Text("Order",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      )),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListTile(
+                  leading: Icon(Icons.favorite),
+                  title: Text("Favorite",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      )),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListTile(
+                  leading: Icon(Icons.map),
+                  title: Text("Address Book",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      )),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListTile(
+                  leading: Icon(Icons.settings),
+                  title: Text("Setting",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      )),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListTile(
+                  leading: Icon(Icons.question_answer),
+                  title: Text("About",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      )),
+                ),
+              ),
+            ],
+          ),
+        ),
+        key: scaffolKey,
         body: SafeArea(
             child: Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: 20),
-          HomeHeading(),
-          Divider(),
-          HomeTitle(
-            closeTop: closeTop,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 20),
+              HomeHeading(
+                scaffolKey: scaffolKey,
+              ),
+              Divider(),
+              HomeTitle(
+                closeTop: closeTop,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 24, bottom: 12),
+                child: Text("Trending Restaurants",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                    )),
+              ),
+              topRestaurant.restaurants != null &&
+                      topRestaurant.restaurants.isNotEmpty
+                  ? Expanded(
+                      child: itemgridview(
+                          topRestaurant, dummypics, _scrollController))
+                  : homepageshimmer(),
+            ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 24, bottom: 12),
-            child: Text("Trending Restaurants",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                )),
-          ),
-          topRestaurant.restaurants != null &&
-                  topRestaurant.restaurants.isNotEmpty
-              ? Expanded(
-                  child:
-                      itemgridview(topRestaurant, dummypics, _scrollController))
-              : homepageshimmer(),
-        ],
-      ),
-    )));
+        )));
   }
 }

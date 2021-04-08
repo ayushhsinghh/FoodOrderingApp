@@ -2,17 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:mytaste/Constant/Colors.dart';
 
 class HomeHeading extends StatelessWidget {
+  final GlobalKey<ScaffoldState> scaffolKey;
   const HomeHeading({
     Key key,
+    this.scaffolKey,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          width: MediaQuery.of(context).size.width * 0.7,
+          width: size.width * 0.7,
           height: 40,
           child: Row(
             children: [
@@ -35,9 +38,12 @@ class HomeHeading extends StatelessWidget {
         ),
         Container(
           // color: Colors.yellow,
-          width: MediaQuery.of(context).size.width * 0.3,
+          width: size.width * 0.3,
           height: 40,
           child: InkWell(
+            onTap: () {
+              scaffolKey.currentState.openDrawer();
+            },
             child: Padding(
               padding: const EdgeInsets.only(left: 40),
               child: Icon(
