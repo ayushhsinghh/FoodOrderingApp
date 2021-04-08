@@ -192,7 +192,7 @@ class _HomePageState extends State<HomePage> {
                   ? Expanded(
                       child: itemgridview(
                           topRestaurant, dummypics, _scrollController))
-                  : homepageshimmer(),
+                  : Expanded(child: homepageshimmer(context)),
             ],
           ),
         )));

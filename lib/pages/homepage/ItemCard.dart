@@ -6,7 +6,8 @@ import 'package:velocity_x/velocity_x.dart';
 
 var rng = new Random();
 
-Material itemCard(RestaurantRestaurant restaurant, String dummypics) {
+Material itemCard(
+    RestaurantRestaurant restaurant, String dummypics, BuildContext context) {
   return Material(
     shadowColor: Colors.white70,
     borderRadius: BorderRadius.only(
@@ -18,8 +19,6 @@ Material itemCard(RestaurantRestaurant restaurant, String dummypics) {
     borderOnForeground: false,
     elevation: 1,
     child: Container(
-      width: 160,
-      height: 200,
       decoration: BoxDecoration(
         // color: Colors.grey,
         borderRadius: BorderRadius.only(
