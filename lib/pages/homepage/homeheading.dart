@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:mytaste/Constant/Colors.dart';
 
 class HomeHeading extends StatelessWidget {
+  final BuildContext context;
   const HomeHeading({
     Key key,
+    this.context,
   }) : super(key: key);
 
   @override
@@ -38,6 +40,9 @@ class HomeHeading extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.3,
           height: 40,
           child: InkWell(
+            onTap: () {
+              Scaffold.of(context).openDrawer();
+            },
             child: Padding(
               padding: const EdgeInsets.only(left: 40),
               child: Icon(
