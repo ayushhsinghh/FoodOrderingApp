@@ -14,7 +14,7 @@ GridView itemgridview(TopRestaurant topRestaurant, Dummypics dummypics,
       ),
       itemBuilder: (context, i) {
         return itemCard(topRestaurant.restaurants[i].restaurant,
-                dummypics.dummyFoodPics[i])
+                dummypics.dummyFoodPics[i], context)
             .py12()
             .px24();
       });

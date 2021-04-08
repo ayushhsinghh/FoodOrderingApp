@@ -10,11 +10,12 @@ class HomeHeading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          width: MediaQuery.of(context).size.width * 0.7,
+          width: size.width * 0.7,
           height: 40,
           child: Row(
             children: [
@@ -37,7 +38,7 @@ class HomeHeading extends StatelessWidget {
         ),
         Container(
           // color: Colors.yellow,
-          width: MediaQuery.of(context).size.width * 0.3,
+          width: size.width * 0.3,
           height: 40,
           child: InkWell(
             onTap: () {

@@ -9,8 +9,6 @@ import 'package:mytaste/utils/locator.dart';
 import 'homepage/HomePageShimmer.dart';
 import 'homepage/Hometitle.dart';
 import 'homepage/homeheading.dart';
-import 'package:velocity_x/velocity_x.dart';
-
 import 'homepage/itemGridView.dart';
 
 class HomePage extends StatefulWidget {
@@ -84,6 +82,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    GlobalKey<ScaffoldState> scaffolKey = GlobalKey<ScaffoldState>();
     return Scaffold(
         drawer: Drawer(
           child: ListView(
