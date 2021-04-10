@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mytaste/Constant/Colors.dart';
+import 'package:mytaste/pages/detailsPage/Restaurant_Details_Page.dart';
+import 'package:mytaste/utils/Routes.dart';
 import 'pages/Homepage.dart';
 
 void main() {
@@ -20,7 +22,11 @@ class MyApp extends StatelessWidget {
             Theme.of(context).textTheme,
           )),
       navigatorKey: navigatorKey,
-      home: HomePage(),
+      routes: {
+        "/": (context) => HomePage(),
+        MyRoutes.homeRoute: (context) => HomePage(),
+        MyRoutes.restuarantPage: (context) => RestaurantPage(),
+      },
     );
   }
 }

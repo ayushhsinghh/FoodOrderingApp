@@ -5,6 +5,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:mytaste/model/dummypics.dart';
 import 'package:mytaste/model/topRestaurant.dart';
 import 'package:mytaste/service/httpService.dart';
+import 'package:mytaste/utils/Drawer.dart';
 import 'package:mytaste/utils/locator.dart';
 import 'homepage/HomePageShimmer.dart';
 import 'homepage/Hometitle.dart';
@@ -82,89 +83,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    GlobalKey<ScaffoldState> scaffolKey = GlobalKey<ScaffoldState>();
     return Scaffold(
-        drawer: Drawer(
-          child: ListView(
-            children: [
-              UserAccountsDrawerHeader(
-                  currentAccountPicture: CircleAvatar(
-                    child: Icon(
-                      Icons.face,
-                      size: 40,
-                    ),
-                  ),
-                  accountName: Text("Ayush Singh"),
-                  accountEmail: Text("Ayushsingh1525@gmail.com")),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListTile(
-                  leading: Icon(Icons.account_box),
-                  title: Text("Profile",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      )),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListTile(
-                  leading: Icon(Icons.shopping_bag),
-                  title: Text("Order",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      )),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListTile(
-                  leading: Icon(Icons.favorite),
-                  title: Text("Favorite",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      )),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListTile(
-                  leading: Icon(Icons.map),
-                  title: Text("Address Book",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      )),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListTile(
-                  leading: Icon(Icons.settings),
-                  title: Text("Setting",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      )),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListTile(
-                  leading: Icon(Icons.question_answer),
-                  title: Text("About",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      )),
-                ),
-              ),
-            ],
-          ),
-        ),
+        drawer: AppDrawer(),
         body: SafeArea(
             child: Container(
           child: Column(
