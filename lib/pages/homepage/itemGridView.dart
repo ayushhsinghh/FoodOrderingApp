@@ -22,6 +22,7 @@ GridView itemgridview(TopRestaurant topRestaurant, Dummypics dummypics,
                   builder: (context) => RestaurantPage(
                     restID:
                         topRestaurant.restaurants[i].restaurant.id.toString(),
+                    dummyimg: dummypics.dummyFoodPics[i],
                   ),
                 ));
           },

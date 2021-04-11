@@ -298,8 +298,8 @@ class HasMenuStatus {
     this.takeaway,
   });
 
-  final bool delivery;
-  final int takeaway;
+  final delivery;
+  final takeaway;
 
   factory HasMenuStatus.fromJson(Map<String, dynamic> json) => HasMenuStatus(
         delivery: json["delivery"],
