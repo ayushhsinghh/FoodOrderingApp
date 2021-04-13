@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:mytaste/Constant/credentials.dart';
+import 'package:mytaste/model/GeoCoding.dart';
 import 'package:mytaste/model/dummypics.dart';
 import 'package:mytaste/model/topRestaurant.dart';
 import 'package:mytaste/service/httpService.dart';
@@ -18,9 +20,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  HttpService http = HttpService();
+  HttpService dhttp = HttpService();
   var topRestaurant = TopRestaurant();
   var dummypics = Dummypics();
+  Dio geodio = Dio();
+  GeoCoding geoCoding = GeoCoding();
   ScrollController _scrollController = new ScrollController();
   bool closeTop = false;
   @override
@@ -54,14 +58,31 @@ class _HomePageState extends State<HomePage> {
     return location;
   }
 
+  Future geocoding(lat, lng, apiKey) async {
+    Map<String, dynamic> queryParams = {
+      'latlng': '$lat,$lng',
+      'key': apiKey,
+      'result_type': 'street_address'
+    };
+    Response response = await geodio.get(
+        "https://maps.googleapis.com/maps/api/geocode/json",
+        queryParameters: queryParams,
+        options: Options(contentType: 'application/json'));
+    setState(() {
+      geoCoding = geoCodingFromJson(response.toString());
+    });
+  }
+
   // Function to get Restuarant Data from API
   Future getRestData() async {
     Position location;
 
     location = await getlocation();
+    geocoding(location.latitude.toString(), location.longitude.toString(),
+        apiKeyGeocoding);
     Response response;
     try {
-      response = await http.getRequest(endPoint: "/search", query: {
+      response = await dhttp.getRequest(endPoint: "/search", query: {
         'lon': location.longitude.toString() ?? 25.3553055,
         'lat': location.latitude.toString() ?? 82.962177,
         'collection_id': '1',
@@ -91,9 +112,12 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 20),
-              HomeHeading(
-                context: context,
-              ),
+              geoCoding.results != null && geoCoding.results.isNotEmpty
+                  ? HomeHeading(
+                      geoCoding: geoCoding,
+                      context: context,
+                    )
+                  : CircularProgressIndicator(),
               Divider(),
               HomeTitle(
                 closeTop: closeTop,

@@ -1,0 +1,42 @@
+{"plus_code": {"compound_code": "7XJ4+QG Varanasi, Uttar Pradesh, India",
+    "global_code": "7MQ47XJ4+QG"},
+   "results": [{"address_components": [{"long_name": "811/A-C",
+       "short_name": "811/A-C",
+       "types": ["premise"]},
+      {"long_name": "Central market DLW",
+       "short_name": "Central market DLW",
+       "types": ["political", "sublocality", "sublocality_level_2"]},
+      {"long_name": "Manduwadih",
+       "short_name": "Manduwadih",
+       "types": ["political", "sublocality", "sublocality_level_1"]},
+      {"long_name": "Varanasi",
+       "short_name": "Varanasi",
+       "types": ["locality", "political"]},
+      {"long_name": "Varanasi",
+       "short_name": "Varanasi",
+       "types": ["administrative_area_level_2", "political"]},
+      {"long_name": "Uttar Pradesh",
+       "short_name": "UP",
+       "types": ["administrative_area_level_1", "political"]},
+      {"long_name": "India",
+       "short_name": "IN",
+       "types": ["country", "political"]},
+      {"long_name": "221001", "short_name": "221001", "types": ["postal_code"]}],
+     "formatted_address": "811/A-C, Central market DLW, Manduwadih, Varanasi, Uttar Pradesh 221001, India",
+     "geometry": {"location": {"lat": "25.2829304", "lng": "82.95600429999999"},
+      "location_type": "ROOFTOP",
+      "viewport": {"northeast": {"lat": "25.2842793802915",
+        "lng": "82.95735328029149"},
+       "southwest": {"lat": "25.28158141970849", "lng": "82.95465531970848"}}},
+     "place_id": "ChIJKf-oSWcyjjkRXex9otzm080",
+     "plus_code": {"compound_code": "7XM4+5C Varanasi, Uttar Pradesh, India",
+      "global_code": "7MQ47XM4+5C"},
+     "types": ["street_address"]}],
+   "status": "OK"}
+   
+   
+   
+   
+   
+   
+   

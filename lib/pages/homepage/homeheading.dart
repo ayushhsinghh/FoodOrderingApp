@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:mytaste/Constant/Colors.dart';
+import 'package:mytaste/model/GeoCoding.dart';
 
 class HomeHeading extends StatelessWidget {
+  final GeoCoding geoCoding;
   final BuildContext context;
   const HomeHeading({
     Key key,
     this.context,
-  }) : super(key: key);
+    this.geoCoding,
+  })  : assert(geoCoding != null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,15 +28,37 @@ class HomeHeading extends StatelessWidget {
                 child: Icon(
                   Icons.location_pin,
                   color: mainColor,
-                  size: 30,
+                  size: 35,
                 ),
               ),
-              Text(
-                "Varanasi",
-                style: TextStyle(
-                  fontSize: 20,
-                ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    geoCoding.results[0].addressComponents[1].shortName
+                        .substring(
+                      0,
+                    ),
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                  // Divider(),
+                  Text(
+                    "${geoCoding.results[0].formattedAddress.substring(0, 40)}...",
+                    style: TextStyle(
+                      fontSize: 10,
+                    ),
+                  ),
+                ],
               ),
+              // Text(
+              //   geoCoding.results[0].addressComponents[1].longName,
+              //   style: TextStyle(
+              //     fontSize: 25,
+              //   ),
+              // ),
             ],
           ),
         ),

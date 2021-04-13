@@ -1,5 +1,6 @@
 import 'package:alice/alice.dart';
 import 'package:dio/dio.dart';
+import 'package:mytaste/Constant/credentials.dart';
 import 'package:mytaste/main.dart';
 
 class HttpService {
@@ -12,10 +13,7 @@ class HttpService {
       maxCallsCount: 1000);
 
   String baseURL = "https://developers.zomato.com/api/v2.1";
-  var header = {
-    "user-key": "2e2bf75126e32940a0f5c1ee00b96dea",
-    "Accept": "application/json"
-  };
+  var header = {"user-key": zomatoAPIKey, "Accept": "application/json"};
 
   HttpService() {
     _dio = Dio(
