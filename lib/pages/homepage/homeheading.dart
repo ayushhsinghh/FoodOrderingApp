@@ -35,10 +35,10 @@ class HomeHeading extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    geoCoding.results[0].addressComponents[1].shortName
-                        .substring(
-                      0,
-                    ),
+                    geoCoding.results[0].addressComponents[1].shortName.length >
+                            20
+                        ? "${geoCoding.results[0].addressComponents[1].shortName.substring(0, 20)}..."
+                        : geoCoding.results[0].addressComponents[1].shortName,
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 20,
@@ -46,19 +46,15 @@ class HomeHeading extends StatelessWidget {
                   ),
                   // Divider(),
                   Text(
-                    "${geoCoding.results[0].formattedAddress.substring(0, 40)}...",
+                    geoCoding.results[0].formattedAddress.length < 40
+                        ? geoCoding.results[0].formattedAddress
+                        : "${geoCoding.results[0].formattedAddress.substring(0, 40)}...",
                     style: TextStyle(
                       fontSize: 10,
                     ),
                   ),
                 ],
               ),
-              // Text(
-              //   geoCoding.results[0].addressComponents[1].longName,
-              //   style: TextStyle(
-              //     fontSize: 25,
-              //   ),
-              // ),
             ],
           ),
         ),

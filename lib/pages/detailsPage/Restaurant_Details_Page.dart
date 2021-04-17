@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:mytaste/Constant/Colors.dart';
 import 'package:mytaste/model/RestaurantDetails.dart';
 import 'package:mytaste/service/httpService.dart';
-import 'package:mytaste/utils/Routes.dart';
 
 class RestaurantPage extends StatefulWidget {
   final String restID;
@@ -56,6 +55,7 @@ class _RestaurantPageState extends State<RestaurantPage> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return restDetails.name != null && restDetails.name.isNotEmpty
         ? SafeArea(
             child: Scaffold(
@@ -122,34 +122,136 @@ class _RestaurantPageState extends State<RestaurantPage> {
                               textAlign: TextAlign.center,
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(12.0),
+                              padding: const EdgeInsets.all(15.0),
                               child: Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceAround,
                                 children: [
-                                  Text("IsDilevery"),
-                                  Text(restDetails.isDeliveringNow == 0
-                                      ? "Yes"
-                                      : "NO")
+                                  Container(
+                                    child: Row(
+                                      children: [
+                                        Icon(
+                                          Icons.schedule_outlined,
+                                          color: Colors.blue[300],
+                                        ),
+                                        SizedBox(
+                                          width: 3,
+                                        ),
+                                        Text("35 min")
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: [
+                                        Icon(
+                                          Icons.star_border_outlined,
+                                          color: Colors.yellow[600],
+                                        ),
+                                        SizedBox(
+                                          width: 3,
+                                        ),
+                                        Text(restDetails
+                                            .userRating.aggregateRating)
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: [
+                                        Icon(
+                                          Icons.local_fire_department_outlined,
+                                          color: Colors.red[300],
+                                        ),
+                                        SizedBox(
+                                          width: 3,
+                                        ),
+                                        Text("325 kcal")
+                                      ],
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(12.0),
+                            Container(
+                              width: size.width * .8,
+                              height: size.height * .08,
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.amber),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
                               child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("IsTableReservation"),
-                                  Text(
-                                      restDetails.isTableReservationSupported ==
-                                              0
-                                          ? "No"
-                                          : "Yes")
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 10),
+                                    child: Icon(
+                                      Icons.shopping_bag_outlined,
+                                      size: 25,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 10),
+                                    child: Text(
+                                      "Order Food Online",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 15),
+                                    ),
+                                  ),
+                                  SizedBox(width: size.width * .26),
+                                  restDetails.isDeliveringNow.toString() == "0"
+                                      ? Icon(
+                                          Icons.do_disturb_alt_outlined,
+                                          color: Colors.red,
+                                        )
+                                      : Icon(
+                                          Icons.check_circle_outline,
+                                          color: Colors.green,
+                                        ),
                                 ],
                               ),
                             ),
-                            Text(restDetails.cuisines),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              width: size.width * .8,
+                              height: size.height * .08,
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.amber),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 10),
+                                    child: Icon(
+                                      Icons.local_dining_outlined,
+                                      size: 25,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 10),
+                                    child: Text(
+                                      "Book Table Online",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 15),
+                                    ),
+                                  ),
+                                  SizedBox(width: size.width * .26),
+                                  restDetails.hasTableBooking.toString() == "0"
+                                      ? Icon(
+                                          Icons.do_disturb_alt_outlined,
+                                          color: Colors.red,
+                                        )
+                                      : Icon(
+                                          Icons.check_circle_outline,
+                                          color: Colors.green,
+                                        ),
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -166,7 +268,8 @@ class _RestaurantPageState extends State<RestaurantPage> {
                           decoration: BoxDecoration(
                               color: Colors.white,
                               shape: BoxShape.circle,
-                              image: DecorationImage(image: imageProvider)),
+                              image: DecorationImage(
+                                  image: imageProvider, fit: BoxFit.fill)),
                           alignment: Alignment.topCenter,
                           width: 160,
                           height: 160,
