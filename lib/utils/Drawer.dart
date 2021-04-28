@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mytaste/utils/Routes.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({Key key}) : super(key: key);
@@ -31,6 +32,9 @@ class AppDrawer extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, MyRoutes.loginRoute);
+              },
               leading: Icon(Icons.shopping_bag),
               title: Text("Order",
                   style: TextStyle(

@@ -1,6 +1,6 @@
 # mytaste
 
- A canteen Automation App
+A Flutter App for Online Food Ordering!
 
 ## Getting Started
 

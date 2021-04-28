@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:642310568382:android:6a50188e88a44c548e21ef",
+        "mobilesdk_app_id": "1:642310568382:android:5f8e14e988a786e58e21ef",
         "android_client_info": {
-          "package_name": "com.hashtraces"
+          "package_name": "com.hashtraces.mytaste"
         }
       },
       "oauth_client": [
