@@ -6,6 +6,7 @@ import 'package:mytaste/Constant/credentials.dart';
 import 'package:mytaste/model/GeoCoding.dart';
 import 'package:mytaste/model/dummypics.dart';
 import 'package:mytaste/model/topRestaurant.dart';
+import 'package:mytaste/service/firebase_auth.dart';
 import 'package:mytaste/service/httpService.dart';
 import 'package:mytaste/utils/Drawer.dart';
 import 'package:mytaste/utils/locator.dart';
@@ -15,6 +16,20 @@ import 'homepage/homeheading.dart';
 import 'homepage/itemGridView.dart';
 
 class HomePage extends StatefulWidget {
+  final VoidCallback onSignOut;
+  final AuthBase auth;
+
+  Future<void> _signOut() async {
+    try {
+      await auth.signOut();
+      onSignOut();
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
+  const HomePage({Key key, this.onSignOut, this.auth}) : super(key: key);
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -105,7 +120,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: AppDrawer(),
+        drawer: AppDrawer(
+          onSignOut: widget._signOut,
+        ),
         body: SafeArea(
             child: Container(
           child: Column(

@@ -1,8 +1,29 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:mytaste/Constant/Colors.dart';
+import 'package:mytaste/service/firebase_auth.dart';
+import 'package:mytaste/utils/Routes.dart';
 
 class SignUpPage extends StatefulWidget {
+  const SignUpPage({
+    Key key,
+    this.auth,
+  }) : super(key: key);
+
+  final AuthBase auth;
+
+  Future<User> _createSignInEmail(String email, String passwd) async {
+    try {
+      final createUser = await auth.createSignInEmail(email, passwd);
+
+      return createUser;
+    } catch (e) {
+      print(e.toString());
+    }
+    return null;
+  }
+
   @override
   _State createState() => _State();
 }
@@ -12,9 +33,7 @@ class _State extends State<SignUpPage> {
   TextEditingController _passwd = TextEditingController();
   TextEditingController _conpasswd = TextEditingController();
   TextEditingController _name = TextEditingController();
-  final GlobalKey<FormState> _form = GlobalKey<FormState>();
-  final regexp = RegExp(
-      r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$");
+  final GlobalKey<FormState> _signInForm = GlobalKey<FormState>();
   bool isValidEmail(String val) {
     return RegExp(
             r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$")
@@ -27,7 +46,7 @@ class _State extends State<SignUpPage> {
         body: Padding(
             padding: EdgeInsets.all(10),
             child: Form(
-              key: _form,
+              key: _signInForm,
               child: ListView(
                 children: <Widget>[
                   Container(
@@ -98,9 +117,8 @@ class _State extends State<SignUpPage> {
                       ),
                     ),
                   ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text('Forgot Password?'),
+                  SizedBox(
+                    height: 20,
                   ),
                   Container(
                       height: 50,
@@ -110,11 +128,20 @@ class _State extends State<SignUpPage> {
                             backgroundColor:
                                 MaterialStateProperty.all<Color>(mainColor)),
                         child: Text('Login'),
-                        onPressed: () {
-                          _form.currentState.validate();
-                          print(_name.text);
-                          print(_email.text);
-                          print(_passwd.text);
+                        onPressed: () async {
+                          // ignore: unused_local_variable
+                          User check;
+                          if (_signInForm.currentState.validate()) {
+                            print(_name.text);
+                            print(_email.text);
+                            print(_passwd.text);
+                            check = await widget._createSignInEmail(
+                                _email.text, _passwd.text);
+                            if (check != null) {
+                              Navigator.pushNamed(
+                                  context, MyRoutes.landingRoute);
+                            }
+                          }
                         },
                       )),
                   Container(

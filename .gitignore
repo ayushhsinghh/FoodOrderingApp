@@ -47,3 +47,4 @@ app.*.map.json
 
 #Pass
 /lib/Constant/credentials.dart
+/android/app/google-services.json

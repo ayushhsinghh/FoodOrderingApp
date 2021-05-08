@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:mytaste/utils/Routes.dart';
 
 class AppDrawer extends StatelessWidget {
-  const AppDrawer({Key key}) : super(key: key);
+  final Future<void> Function() onSignOut;
+  const AppDrawer({
+    Key key,
+    this.onSignOut,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -79,8 +83,11 @@ class AppDrawer extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ListTile(
+              onTap: () async {
+                await onSignOut();
+              },
               leading: Icon(Icons.question_answer),
-              title: Text("About",
+              title: Text("SignOut",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w600,
