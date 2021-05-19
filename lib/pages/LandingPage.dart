@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mytaste/pages/Homepage.dart';
+import 'package:mytaste/pages/homepage/Homepage.dart';
 import 'package:mytaste/pages/LoginPage/Login.dart';
 import 'package:mytaste/service/firebase_auth.dart';
 

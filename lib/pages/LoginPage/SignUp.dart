@@ -13,10 +13,10 @@ class SignUpPage extends StatefulWidget {
 
   final AuthBase auth;
 
-  Future<User> _createSignInEmail(String email, String passwd) async {
+  Future<User> _createSignInEmail(
+      String email, String passwd, String name) async {
     try {
-      final createUser = await auth.createSignInEmail(email, passwd);
-
+      final createUser = await auth.createSignInEmail(email, passwd, name);
       return createUser;
     } catch (e) {
       print(e.toString());
@@ -39,6 +39,23 @@ class _State extends State<SignUpPage> {
             r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$")
         .hasMatch(val);
   }
+
+  final signUpSnackBar = SnackBar(
+      content: Text(
+    ' Yay! User Created And Logged In!',
+    style: TextStyle(
+      fontSize: 20,
+      color: Colors.black,
+    ),
+  ));
+  final signUpfailSnackBar = SnackBar(
+      content: Text(
+    ' Uff! Their\'s an Issue...',
+    style: TextStyle(
+      fontSize: 20,
+      color: Colors.black,
+    ),
+  ));
 
   @override
   Widget build(BuildContext context) {
@@ -136,10 +153,15 @@ class _State extends State<SignUpPage> {
                             print(_email.text);
                             print(_passwd.text);
                             check = await widget._createSignInEmail(
-                                _email.text, _passwd.text);
+                                _email.text, _passwd.text, _name.text);
                             if (check != null) {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(signUpSnackBar);
                               Navigator.pushNamed(
                                   context, MyRoutes.landingRoute);
+                            } else {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(signUpfailSnackBar);
                             }
                           }
                         },

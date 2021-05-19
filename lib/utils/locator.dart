@@ -10,7 +10,9 @@ Future<Position> determinePosition() async {
 
   // Test if location services are enabled.
   serviceEnabled = await Geolocator.isLocationServiceEnabled();
+  print(serviceEnabled);
   if (!serviceEnabled) {
+    await Geolocator.openLocationSettings();
     await Geolocator.requestPermission();
   }
 
@@ -36,5 +38,8 @@ Future<Position> determinePosition() async {
   // When we reach here, permissions are granted and we can
   // continue accessing the position of the device.
 
-  return await Geolocator.getCurrentPosition();
+  return await Geolocator.getCurrentPosition(
+    desiredAccuracy: LocationAccuracy.medium,
+    forceAndroidLocationManager: true,
+  );
 }

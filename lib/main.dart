@@ -2,12 +2,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mytaste/Constant/Colors.dart';
+import 'package:mytaste/pages/DrawerPage/ProfilePage.dart';
 import 'package:mytaste/pages/LandingPage.dart';
 import 'package:mytaste/pages/LoginPage/Login.dart';
 import 'package:mytaste/pages/detailsPage/Restaurant_Details_Page.dart';
 import 'package:mytaste/service/firebase_auth.dart';
 import 'package:mytaste/utils/Routes.dart';
-import 'pages/Homepage.dart';
+import 'pages/homepage/Homepage.dart';
 import 'pages/LoginPage/SignUp.dart';
 
 void main() async {
@@ -46,6 +47,9 @@ class MyApp extends StatelessWidget {
               auth: Auth(),
             ),
         MyRoutes.landingRoute: (context) => LandingPage(
+              auth: Auth(),
+            ),
+        MyRoutes.profileRoute: (context) => ProfilePage(
               auth: Auth(),
             ),
       },

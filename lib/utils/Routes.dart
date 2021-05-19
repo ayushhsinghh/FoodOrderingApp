@@ -5,4 +5,5 @@ class MyRoutes {
   static String cartRoute = "/cart";
   static String signUpRoute = "/signUp";
   static String landingRoute = "/landing";
+  static String profileRoute = "/profile";
 }

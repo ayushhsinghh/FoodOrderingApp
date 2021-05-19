@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:mytaste/Constant/Colors.dart';
 import 'package:mytaste/model/GeoCoding.dart';
 
 class HomeHeading extends StatelessWidget {
   final GeoCoding geoCoding;
-  final BuildContext context;
+  final AdvancedDrawerController drawercontroller;
   const HomeHeading({
     Key key,
-    this.context,
     this.geoCoding,
+    this.drawercontroller,
   })  : assert(geoCoding != null),
         super(key: key);
 
@@ -64,13 +65,18 @@ class HomeHeading extends StatelessWidget {
           height: 40,
           child: InkWell(
             onTap: () {
-              Scaffold.of(context).openDrawer();
+              drawercontroller.showDrawer();
             },
             child: Padding(
               padding: const EdgeInsets.only(left: 40),
-              child: Icon(
-                Icons.short_text,
-                size: 35,
+              child: ValueListenableBuilder<AdvancedDrawerValue>(
+                valueListenable: drawercontroller,
+                builder: (context, value, child) {
+                  return Icon(
+                    value.visible ? Icons.clear : Icons.short_text,
+                    size: 35,
+                  );
+                },
               ),
             ),
           ),

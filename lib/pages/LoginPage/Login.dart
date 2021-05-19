@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mytaste/Constant/Colors.dart';
 import 'package:mytaste/service/firebase_auth.dart';
 import 'package:mytaste/utils/Routes.dart';
 
@@ -9,23 +10,19 @@ class LoginPage extends StatefulWidget {
   final void Function(User) onSignIn;
   final AuthBase auth;
 
-  Future<void> _signInEmailPass(String email, String passwd) async {
+  Future<bool> _signInEmailPass(String email, String passwd) async {
     try {
       final user = await auth.signInEmail(email, passwd);
-      onSignIn(user);
+      if (user.uid != null) {
+        onSignIn(user);
+        return true;
+      }
+      return false;
     } catch (e) {
       print(e.toString());
+      return false;
     }
   }
-
-  // Future<void> _signInAnonymous() async {
-  //   try {
-  //     final user = await auth.signInAnonymous();
-  //     onSignIn(user);
-  //   } catch (e) {
-  //     print(e.toString());
-  //   }
-  // }
 
   @override
   _State createState() => _State();
@@ -35,6 +32,28 @@ class _State extends State<LoginPage> {
   TextEditingController _email = TextEditingController();
   TextEditingController _passwd = TextEditingController();
   final GlobalKey<FormState> _loginForm = GlobalKey<FormState>();
+  bool isLogged = false;
+
+  final loginSnackBar = SnackBar(
+    content: Text(
+      ' Yay! You\'re Logged In! ',
+      style: TextStyle(
+        fontSize: 20,
+        color: Colors.black,
+      ),
+    ),
+    backgroundColor: mainColor,
+  );
+  final loginfailSnackBar = SnackBar(
+    content: Text(
+      ' Uff! Wrong Credentials! ',
+      style: TextStyle(
+        fontSize: 20,
+        color: Colors.black,
+      ),
+    ),
+    backgroundColor: mainColor,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -94,15 +113,22 @@ class _State extends State<LoginPage> {
                       height: 50,
                       padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                       child: ElevatedButton(
-                        child: Text('Login'),
-                        onPressed: () {
-                          if (_loginForm.currentState.validate()) {
-                            print(_email.text);
-                            print(_passwd.text);
-                            widget._signInEmailPass(_email.text, _passwd.text);
-                          }
-                        },
-                      )),
+                          child: Text('Login'),
+                          onPressed: () async {
+                            if (_loginForm.currentState.validate()) {
+                              print(_email.text);
+                              print(_passwd.text);
+                              isLogged = await widget._signInEmailPass(
+                                  _email.text, _passwd.text);
+                              if (isLogged) {
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(loginSnackBar);
+                              } else {
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(loginfailSnackBar);
+                              }
+                            }
+                          })),
                   Container(
                       child: Row(
                     children: <Widget>[
