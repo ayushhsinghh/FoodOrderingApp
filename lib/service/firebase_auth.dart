@@ -43,14 +43,14 @@ class Auth implements AuthBase {
   @override
   Future<User> createSignInEmail(
       String email, String passwd, String displayName) async {
-    final userCredential = await _firebaseAuth
-        .createUserWithEmailAndPassword(
+    final userCredential = await _firebaseAuth.createUserWithEmailAndPassword(
       email: email,
       password: passwd,
-    )
-        .then((value) {
-      value.user.updateProfile(displayName: displayName);
-    });
+    );
+
+    userCredential.user.updateProfile(displayName: displayName);
+    userCredential.user.reload();
+
     return userCredential.user;
   }
 

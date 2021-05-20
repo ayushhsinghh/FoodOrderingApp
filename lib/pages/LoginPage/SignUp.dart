@@ -145,7 +145,7 @@ class _State extends State<SignUpPage> {
                         style: ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.all<Color>(mainColor)),
-                        child: Text('Login'),
+                        child: Text('Sign Up'),
                         onPressed: () async {
                           // ignore: unused_local_variable
                           User check;
@@ -155,6 +155,7 @@ class _State extends State<SignUpPage> {
                             print(_passwd.text);
                             check = await widget._createSignInEmail(
                                 _email.text, _passwd.text, _name.text);
+                            setState(() {});
                             if (check != null) {
                               ScaffoldMessenger.of(context)
                                   .showSnackBar(signUpSnackBar);
@@ -167,20 +168,6 @@ class _State extends State<SignUpPage> {
                           }
                         },
                       )),
-                  Container(
-                      child: Row(
-                    children: <Widget>[
-                      Text('Does not have an account?'),
-                      TextButton(
-                        child: Text(
-                          'Sign Up',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        onPressed: () {},
-                      )
-                    ],
-                    mainAxisAlignment: MainAxisAlignment.center,
-                  ))
                 ],
               ),
             )));

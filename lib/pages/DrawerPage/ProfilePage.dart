@@ -55,7 +55,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _controllerName.text = widget.auth.currentUser.displayName == null
         ? "Unknown"
