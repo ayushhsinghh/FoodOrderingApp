@@ -49,13 +49,14 @@ class _State extends State<SignUpPage> {
     ),
   ));
   final signUpfailSnackBar = SnackBar(
+      backgroundColor: Colors.red[400],
       content: Text(
-    ' Uff! Their\'s an Issue...',
-    style: TextStyle(
-      fontSize: 20,
-      color: Colors.black,
-    ),
-  ));
+        ' Uff! Their\'s an Issue...',
+        style: TextStyle(
+          fontSize: 20,
+          color: Colors.black,
+        ),
+      ));
 
   @override
   Widget build(BuildContext context) {

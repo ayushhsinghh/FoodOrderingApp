@@ -4,7 +4,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 
 class FirebaseStore {
   FirebaseStorage storage = FirebaseStorage.instance;
-
   Future<String> uploadImage(String uid, File image) async {
     try {
       await storage.ref().child("user/profile/$uid").putFile(image);

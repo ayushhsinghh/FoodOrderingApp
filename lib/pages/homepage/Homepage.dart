@@ -104,6 +104,7 @@ class _HomePageState extends State<HomePage> {
         'lon': location.longitude.toString() ?? 25.3553055,
         'lat': location.latitude.toString() ?? 82.962177,
         'collection_id': '1',
+        'sort': 'real_distance',
       });
 
       if (response.statusCode == 200) {

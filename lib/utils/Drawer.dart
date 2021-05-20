@@ -34,7 +34,9 @@ class AppDrawer extends StatelessWidget {
               // accountName: auth.currentUser.displayName != ""
               //     ? Text(auth.currentUser.displayName)
               //     : Text("Unknow"),
-              accountName: Text("AYush"),
+              accountName: auth.currentUser.photoURL != null
+                  ? Text(auth.currentUser.displayName)
+                  : Text('Unknown'),
               accountEmail: Text(auth.currentUser.email),
               otherAccountsPictures: [
                 InkWell(
