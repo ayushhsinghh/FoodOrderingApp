@@ -18,19 +18,9 @@ import 'homeheading.dart';
 import 'itemGridView.dart';
 
 class HomePage extends StatefulWidget {
-  final VoidCallback onSignOut;
   final AuthBase auth;
 
-  Future<void> _signOut() async {
-    try {
-      await auth.signOut();
-      onSignOut();
-    } catch (e) {
-      print(e.toString());
-    }
-  }
-
-  const HomePage({Key key, this.onSignOut, this.auth}) : super(key: key);
+  const HomePage({Key key, this.auth}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -135,7 +125,6 @@ class _HomePageState extends State<HomePage> {
       ),
       drawer: AppDrawer(
         auth: widget.auth,
-        onSignOut: widget._signOut,
       ),
       child: Scaffold(
           body: SafeArea(

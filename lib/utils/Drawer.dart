@@ -5,11 +5,9 @@ import 'package:mytaste/utils/Routes.dart';
 import 'package:mytaste/service/firebase_auth.dart';
 
 class AppDrawer extends StatelessWidget {
-  final Future<void> Function() onSignOut;
   final AuthBase auth;
   const AppDrawer({
     Key key,
-    this.onSignOut,
     this.auth,
   }) : super(key: key);
 
@@ -41,7 +39,7 @@ class AppDrawer extends StatelessWidget {
               otherAccountsPictures: [
                 InkWell(
                     onTap: () async {
-                      await onSignOut();
+                      await auth.signOut();
                     },
                     child: Icon(Icons.logout)),
               ],
@@ -51,7 +49,10 @@ class AppDrawer extends StatelessWidget {
               child: ListTile(
                 onTap: () =>
                     Navigator.pushNamed(context, MyRoutes.profileRoute),
-                leading: Icon(Icons.account_box),
+                leading: Icon(
+                  Icons.account_box,
+                  color: mainColor,
+                ),
                 title: Text("Profile",
                     style: TextStyle(
                       fontSize: 20,
@@ -70,7 +71,10 @@ class AppDrawer extends StatelessWidget {
                                 auth: auth,
                               )));
                 },
-                leading: Icon(Icons.shopping_bag),
+                leading: Icon(
+                  Icons.shopping_bag,
+                  color: mainColor,
+                ),
                 title: Text("Order",
                     style: TextStyle(
                       fontSize: 20,
@@ -81,7 +85,10 @@ class AppDrawer extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ListTile(
-                leading: Icon(Icons.favorite),
+                leading: Icon(
+                  Icons.favorite,
+                  color: mainColor,
+                ),
                 title: Text("Favorite",
                     style: TextStyle(
                       fontSize: 20,
@@ -92,7 +99,10 @@ class AppDrawer extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ListTile(
-                leading: Icon(Icons.map),
+                leading: Icon(
+                  Icons.map,
+                  color: mainColor,
+                ),
                 title: Text("Address Book",
                     style: TextStyle(
                       fontSize: 20,
@@ -103,7 +113,10 @@ class AppDrawer extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ListTile(
-                leading: Icon(Icons.settings),
+                leading: Icon(
+                  Icons.settings,
+                  color: mainColor,
+                ),
                 title: Text("Setting",
                     style: TextStyle(
                       fontSize: 20,
@@ -114,7 +127,10 @@ class AppDrawer extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ListTile(
-                leading: Icon(Icons.question_answer),
+                leading: Icon(
+                  Icons.question_answer,
+                  color: mainColor,
+                ),
                 title: Text("About Us",
                     style: TextStyle(
                       fontSize: 20,

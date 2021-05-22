@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mytaste/Constant/Colors.dart';
@@ -45,13 +44,14 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   final nameChangedSnackbar = SnackBar(
+      backgroundColor: mainColor,
       content: Text(
-    ' Change Saved Successfully',
-    style: TextStyle(
-      fontSize: 20,
-      color: Colors.black,
-    ),
-  ));
+        ' Change Saved Successfully',
+        style: TextStyle(
+          fontSize: 20,
+          color: Colors.black,
+        ),
+      ));
 
   @override
   void initState() {
@@ -76,6 +76,7 @@ class _ProfilePageState extends State<ProfilePage> {
           padding: const EdgeInsets.all(12.0),
           child: Column(
             children: [
+              // ! Profile Picture Section
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
                 CircleAvatar(
                   backgroundImage: widget.auth.currentUser.photoURL != null
@@ -90,13 +91,14 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     onPressed: () async {
                       await getImage(widget.auth.currentUser.uid, widget.auth);
-                      setState(() {});
+                      print("Photo Changed");
                     },
                     child: Text("Change Picture"))
               ]),
               SizedBox(
-                height: 20,
+                height: size.height * 0.03,
               ),
+              // ! Changed Name Section
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
                 Container(
                   child: Text(
@@ -129,7 +131,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ]),
               SizedBox(
-                height: 15,
+                height: size.height * 0.02,
               ),
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
                 Container(
@@ -155,7 +157,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 )),
               ]),
               SizedBox(
-                height: 25,
+                height: size.height * 0.04,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

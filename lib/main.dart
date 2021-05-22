@@ -37,7 +37,6 @@ class MyApp extends StatelessWidget {
             ),
         MyRoutes.homeRoute: (context) => HomePage(
               auth: Auth(),
-              onSignOut: () {},
             ),
         MyRoutes.restuarantPage: (context) => RestaurantPage(),
         MyRoutes.loginRoute: (context) => LoginPage(

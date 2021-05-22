@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class AuthBase {
   User get currentUser;
+  Stream<User> authStateChanges();
   Future<User> signInEmail(String email, String passwd);
   Future<User> createSignInEmail(
       String email, String passwd, String displayName);
@@ -14,6 +15,9 @@ class Auth implements AuthBase {
 
   @override
   User get currentUser => _firebaseAuth.currentUser;
+
+  @override
+  Stream<User> authStateChanges() => _firebaseAuth.authStateChanges();
 
   @override
   Future<User> signInEmail(String email, String passwd) async {

@@ -26,10 +26,11 @@ GridView itemgridview(TopRestaurant topRestaurant, Dummypics dummypics,
                   ),
                 ));
           },
-          child: itemCard(topRestaurant.restaurants[i].restaurant,
-                  dummypics.dummyFoodPics[i], context)
-              .py12()
-              .px24(),
+          child: ItemCard(
+            restaurant: topRestaurant.restaurants[i].restaurant,
+            dummypics: dummypics.dummyFoodPics[i],
+            context: context,
+          ).py12().px24(),
         );
       });
 }

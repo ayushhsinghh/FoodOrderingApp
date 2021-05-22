@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:mytaste/Constant/Colors.dart';
@@ -6,15 +5,13 @@ import 'package:mytaste/service/firebase_auth.dart';
 import 'package:mytaste/utils/Routes.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key key, this.onSignIn, this.auth}) : super(key: key);
-  final void Function(User) onSignIn;
+  const LoginPage({Key key, this.auth}) : super(key: key);
   final AuthBase auth;
 
   Future<bool> _signInEmailPass(String email, String passwd) async {
     try {
       final user = await auth.signInEmail(email, passwd);
       if (user.uid != null) {
-        onSignIn(user);
         return true;
       }
       return false;

@@ -14,32 +14,27 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
-  User _user;
-
-  @override
-  void initState() {
-    super.initState();
-    _updateUser(widget.auth.currentUser);
-  }
-
-  void _updateUser(User user) {
-    setState(() {
-      _user = user;
-    });
-    print("User Updated");
-  }
-
   @override
   Widget build(BuildContext context) {
-    if (_user == null) {
-      return LoginPage(
-        auth: widget.auth,
-        onSignIn: _updateUser,
-      );
-    } else
-      return HomePage(
-        auth: widget.auth,
-        onSignOut: () => _updateUser(null),
-      );
+    return StreamBuilder<User>(
+        stream: widget.auth.authStateChanges(),
+        builder: (context, snapshot) {
+          final User user = snapshot.data;
+          if (snapshot.connectionState == ConnectionState.active) {
+            if (user == null) {
+              return LoginPage(
+                auth: widget.auth,
+              );
+            } else
+              return HomePage(
+                auth: widget.auth,
+              );
+          }
+          return Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        });
   }
 }

@@ -41,15 +41,16 @@ class _State extends State<SignUpPage> {
   }
 
   final signUpSnackBar = SnackBar(
+      backgroundColor: mainColor,
       content: Text(
-    ' Yay! User Created And Logged In!',
-    style: TextStyle(
-      fontSize: 20,
-      color: Colors.black,
-    ),
-  ));
+        ' Yay! User Created And Logged In!',
+        style: TextStyle(
+          fontSize: 20,
+          color: Colors.black,
+        ),
+      ));
   final signUpfailSnackBar = SnackBar(
-      backgroundColor: Colors.red[400],
+      backgroundColor: Colors.red[900],
       content: Text(
         ' Uff! Their\'s an Issue...',
         style: TextStyle(
