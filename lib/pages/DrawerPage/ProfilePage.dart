@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mytaste/Constant/Colors.dart';
@@ -83,11 +84,16 @@ class _ProfilePageState extends State<ProfilePage> {
             children: [
               // ! Profile Picture Section
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-                CircleAvatar(
-                  backgroundImage: auth.currentUser.photoURL != null
-                      ? NetworkImage(auth.currentUser.photoURL)
-                      : AssetImage("assets/defaultProfileImage.jpg"),
-                  radius: 40,
+                CachedNetworkImage(
+                  imageUrl: auth.currentUser.photoURL,
+                  imageBuilder: (context, imageProvider) => CircleAvatar(
+                    backgroundImage: imageProvider != null
+                        ? imageProvider
+                        : AssetImage("assets/defaultProfileImage.jpg"),
+                    radius: 40,
+                  ),
+                  placeholder: (context, url) => CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
                 ),
                 ElevatedButton(
                     style: ButtonStyle(
@@ -97,6 +103,10 @@ class _ProfilePageState extends State<ProfilePage> {
                     onPressed: () async {
                       await getImage();
                       print("Photo Changed");
+                      await Future.delayed(
+                        const Duration(seconds: 2),
+                      );
+                      setState(() {});
                     },
                     child: Text("Change Picture"))
               ]),
