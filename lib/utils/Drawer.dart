@@ -10,6 +10,15 @@ class AppDrawer extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
+  Future<void> _signOut(BuildContext context) async {
+    try {
+      final auth = Provider.of<AuthBase>(context, listen: false);
+      await auth.signOut();
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final auth = Provider.of<AuthBase>(context, listen: false);
@@ -38,8 +47,27 @@ class AppDrawer extends StatelessWidget {
               accountEmail: Text(auth.currentUser.email),
               otherAccountsPictures: [
                 InkWell(
-                    onTap: () async {
-                      await auth.signOut();
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: Text("Confirm Sign Out"),
+                          content: Text("Are you sure, You want to Sign Out"),
+                          actions: [
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text("No")),
+                            TextButton(
+                                onPressed: () async {
+                                  await _signOut(context);
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text("Yes"))
+                          ],
+                        ),
+                      );
                     },
                     child: Icon(Icons.logout)),
               ],
