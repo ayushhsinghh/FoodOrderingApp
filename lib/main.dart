@@ -10,6 +10,7 @@ import 'package:mytaste/service/firebase_auth.dart';
 import 'package:mytaste/utils/Routes.dart';
 import 'pages/homepage/Homepage.dart';
 import 'pages/LoginPage/SignUp.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,36 +23,27 @@ GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          primaryColor: mainColor,
-          backgroundColor: whitebg,
-          textTheme: GoogleFonts.latoTextTheme(
-            Theme.of(context).textTheme,
-          )),
-      navigatorKey: navigatorKey,
-      routes: {
-        "/": (context) => LandingPage(
-              auth: Auth(),
-            ),
-        MyRoutes.homeRoute: (context) => HomePage(
-              auth: Auth(),
-            ),
-        MyRoutes.restuarantPage: (context) => RestaurantPage(),
-        MyRoutes.loginRoute: (context) => LoginPage(
-              auth: Auth(),
-            ),
-        MyRoutes.signUpRoute: (context) => SignUpPage(
-              auth: Auth(),
-            ),
-        MyRoutes.landingRoute: (context) => LandingPage(
-              auth: Auth(),
-            ),
-        MyRoutes.profileRoute: (context) => ProfilePage(
-              auth: Auth(),
-            ),
-      },
+    return Provider<AuthBase>(
+      create: (context) => Auth(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+            primaryColor: mainColor,
+            backgroundColor: whitebg,
+            textTheme: GoogleFonts.latoTextTheme(
+              Theme.of(context).textTheme,
+            )),
+        navigatorKey: navigatorKey,
+        routes: {
+          "/": (context) => LandingPage(),
+          MyRoutes.homeRoute: (context) => HomePage(),
+          MyRoutes.restuarantPage: (context) => RestaurantPage(),
+          MyRoutes.loginRoute: (context) => LoginPage(),
+          MyRoutes.signUpRoute: (context) => SignUpPage(),
+          MyRoutes.landingRoute: (context) => LandingPage(),
+          MyRoutes.profileRoute: (context) => ProfilePage(),
+        },
+      ),
     );
   }
 }

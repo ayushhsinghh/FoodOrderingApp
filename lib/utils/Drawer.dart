@@ -3,16 +3,16 @@ import 'package:mytaste/Constant/Colors.dart';
 import 'package:mytaste/pages/DrawerPage/ProfilePage.dart';
 import 'package:mytaste/utils/Routes.dart';
 import 'package:mytaste/service/firebase_auth.dart';
+import 'package:provider/provider.dart';
 
 class AppDrawer extends StatelessWidget {
-  final AuthBase auth;
   const AppDrawer({
     Key key,
-    this.auth,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final auth = Provider.of<AuthBase>(context, listen: false);
     return SafeArea(
       child: Container(
         decoration: BoxDecoration(
@@ -64,12 +64,8 @@ class AppDrawer extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: ListTile(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ProfilePage(
-                                auth: auth,
-                              )));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ProfilePage()));
                 },
                 leading: Icon(
                   Icons.shopping_bag,

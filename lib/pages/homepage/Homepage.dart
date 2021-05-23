@@ -8,7 +8,6 @@ import 'package:mytaste/Constant/credentials.dart';
 import 'package:mytaste/model/GeoCoding.dart';
 import 'package:mytaste/model/dummypics.dart';
 import 'package:mytaste/model/topRestaurant.dart';
-import 'package:mytaste/service/firebase_auth.dart';
 import 'package:mytaste/service/httpService.dart';
 import 'package:mytaste/utils/Drawer.dart';
 import 'package:mytaste/utils/locator.dart';
@@ -18,9 +17,9 @@ import 'homeheading.dart';
 import 'itemGridView.dart';
 
 class HomePage extends StatefulWidget {
-  final AuthBase auth;
-
-  const HomePage({Key key, this.auth}) : super(key: key);
+  const HomePage({
+    Key key,
+  }) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -123,9 +122,7 @@ class _HomePageState extends State<HomePage> {
       childDecoration: const BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(16)),
       ),
-      drawer: AppDrawer(
-        auth: widget.auth,
-      ),
+      drawer: AppDrawer(),
       child: Scaffold(
           body: SafeArea(
               child: Container(

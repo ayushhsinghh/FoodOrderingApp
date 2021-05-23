@@ -3,13 +3,17 @@ import 'package:lottie/lottie.dart';
 import 'package:mytaste/Constant/Colors.dart';
 import 'package:mytaste/service/firebase_auth.dart';
 import 'package:mytaste/utils/Routes.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key key, this.auth}) : super(key: key);
-  final AuthBase auth;
+  const LoginPage({
+    Key key,
+  }) : super(key: key);
 
-  Future<bool> _signInEmailPass(String email, String passwd) async {
+  Future<bool> _signInEmailPass(
+      String email, String passwd, BuildContext context) async {
     try {
+      final auth = Provider.of<AuthBase>(context, listen: false);
       final user = await auth.signInEmail(email, passwd);
       if (user.uid != null) {
         return true;
@@ -116,7 +120,7 @@ class _State extends State<LoginPage> {
                               print(_email.text);
                               print(_passwd.text);
                               isLogged = await widget._signInEmailPass(
-                                  _email.text, _passwd.text);
+                                  _email.text, _passwd.text, context);
                               if (isLogged) {
                                 ScaffoldMessenger.of(context)
                                     .showSnackBar(loginSnackBar);

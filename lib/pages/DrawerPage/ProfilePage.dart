@@ -5,11 +5,12 @@ import 'package:mytaste/Constant/Colors.dart';
 import 'package:mytaste/pages/homepage/Homepage.dart';
 import 'package:mytaste/service/firebaseStorage.dart';
 import 'package:mytaste/service/firebase_auth.dart';
+import 'package:provider/provider.dart';
 
 class ProfilePage extends StatefulWidget {
-  final AuthBase auth;
-
-  const ProfilePage({Key key, this.auth}) : super(key: key);
+  const ProfilePage({
+    Key key,
+  }) : super(key: key);
 
   @override
   _ProfilePageState createState() => _ProfilePageState();
@@ -24,7 +25,8 @@ class _ProfilePageState extends State<ProfilePage> {
   final _controllerName = TextEditingController();
   final _controllerEmail = TextEditingController();
 
-  Future getImage(String uid, AuthBase auth) async {
+  Future getImage() async {
+    final auth = Provider.of<AuthBase>(context, listen: false);
     final pickedFile = await picker.getImage(source: ImageSource.gallery);
 
     setState(() {
@@ -35,12 +37,13 @@ class _ProfilePageState extends State<ProfilePage> {
       }
     });
     print(_image);
-    String imageURL = await firebaseStore.uploadImage(uid, _image);
+    String imageURL =
+        await firebaseStore.uploadImage(auth.currentUser.uid, _image);
     print(imageURL);
 
     auth.currentUser.updateProfile(
-        photoURL: imageURL, displayName: widget.auth.currentUser.displayName);
-    widget.auth.currentUser.reload();
+        photoURL: imageURL, displayName: auth.currentUser.displayName);
+    auth.currentUser.reload();
   }
 
   final nameChangedSnackbar = SnackBar(
@@ -56,15 +59,17 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   void initState() {
     super.initState();
-    _controllerName.text = widget.auth.currentUser.displayName == null
+    final auth = Provider.of<AuthBase>(context, listen: false);
+    _controllerName.text = auth.currentUser.displayName == null
         ? "Unknown"
-        : widget.auth.currentUser.displayName;
+        : auth.currentUser.displayName;
   }
 
   @override
   Widget build(BuildContext context) {
+    final auth = Provider.of<AuthBase>(context, listen: false);
     Size size = MediaQuery.of(context).size;
-    _controllerEmail.text = widget.auth.currentUser.email;
+    _controllerEmail.text = auth.currentUser.email;
 
     return Scaffold(
       appBar: AppBar(
@@ -79,8 +84,8 @@ class _ProfilePageState extends State<ProfilePage> {
               // ! Profile Picture Section
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
                 CircleAvatar(
-                  backgroundImage: widget.auth.currentUser.photoURL != null
-                      ? NetworkImage(widget.auth.currentUser.photoURL)
+                  backgroundImage: auth.currentUser.photoURL != null
+                      ? NetworkImage(auth.currentUser.photoURL)
                       : AssetImage("assets/defaultProfileImage.jpg"),
                   radius: 40,
                 ),
@@ -90,7 +95,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           MaterialStateProperty.all<Color>(mainColor),
                     ),
                     onPressed: () async {
-                      await getImage(widget.auth.currentUser.uid, widget.auth);
+                      await getImage();
                       print("Photo Changed");
                     },
                     child: Text("Change Picture"))
@@ -169,11 +174,11 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                       onPressed: () {
                         setState(() {
-                          widget.auth.currentUser.updateProfile(
+                          auth.currentUser.updateProfile(
                               displayName: _controllerName.text,
-                              photoURL: widget.auth.currentUser.photoURL);
+                              photoURL: auth.currentUser.photoURL);
                         });
-                        if (widget.auth.currentUser.displayName ==
+                        if (auth.currentUser.displayName ==
                             _controllerName.text) {
                           ScaffoldMessenger.of(context)
                               .showSnackBar(nameChangedSnackbar);
@@ -181,9 +186,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => HomePage(
-                                      auth: widget.auth,
-                                    )));
+                                builder: (context) => HomePage()));
                       },
                       child: Text("Save Changes")),
                   ElevatedButton(
