@@ -6,11 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:mytaste/Constant/Colors.dart';
 import 'package:mytaste/model/RestaurantDetails.dart';
 import 'package:mytaste/service/httpService.dart';
+import 'package:mytaste/utils/Routes.dart';
 
 class RestaurantPage extends StatefulWidget {
   final String restID;
   final String dummyimg;
-  const RestaurantPage({Key key, this.restID, this.dummyimg}) : super(key: key);
+  final bool isFav;
+  const RestaurantPage({Key key, this.restID, this.dummyimg, this.isFav})
+      : super(key: key);
 
   @override
   _RestaurantPageState createState() => _RestaurantPageState();
@@ -78,12 +81,16 @@ class _RestaurantPageState extends State<RestaurantPage> {
               ),
               actions: [
                 Padding(
-                  padding: const EdgeInsets.only(
-                    right: 30,
-                    top: 30,
-                  ),
-                  child: Icon(Icons.favorite_border_outlined),
-                )
+                    padding: const EdgeInsets.only(
+                      right: 30,
+                      top: 30,
+                    ),
+                    child: widget.isFav
+                        ? Icon(
+                            Icons.favorite,
+                            color: Colors.red,
+                          )
+                        : Icon(Icons.favorite_border_outlined))
               ],
             ),
             body: SingleChildScrollView(
@@ -173,42 +180,52 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                 ],
                               ),
                             ),
-                            Container(
-                              width: size.width * .8,
-                              height: size.height * .08,
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.amber),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Row(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 10),
-                                    child: Icon(
-                                      Icons.shopping_bag_outlined,
-                                      size: 25,
+                            SizedBox(
+                              height: size.height * 0.1,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                    context, MyRoutes.orderListRoute);
+                              },
+                              child: Container(
+                                width: size.width * .8,
+                                height: size.height * .08,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.amber),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 10),
+                                      child: Icon(
+                                        Icons.shopping_bag_outlined,
+                                        size: 25,
+                                      ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 10),
-                                    child: Text(
-                                      "Order Food Online",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 15),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 10),
+                                      child: Text(
+                                        "Order Food Online",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 15),
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(width: size.width * .26),
-                                  restDetails.isDeliveringNow.toString() == "0"
-                                      ? Icon(
-                                          Icons.do_disturb_alt_outlined,
-                                          color: Colors.red,
-                                        )
-                                      : Icon(
-                                          Icons.check_circle_outline,
-                                          color: Colors.green,
-                                        ),
-                                ],
+                                    SizedBox(width: size.width * .26),
+                                    restDetails.isDeliveringNow.toString() ==
+                                            "0"
+                                        ? Icon(
+                                            Icons.do_disturb_alt_outlined,
+                                            color: Colors.red,
+                                          )
+                                        : Icon(
+                                            Icons.check_circle_outline,
+                                            color: Colors.green,
+                                          ),
+                                  ],
+                                ),
                               ),
                             ),
                             SizedBox(

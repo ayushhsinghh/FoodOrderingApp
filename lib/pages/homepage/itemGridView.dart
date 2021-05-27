@@ -14,23 +14,10 @@ GridView itemgridview(TopRestaurant topRestaurant, Dummypics dummypics,
         crossAxisCount: 2,
       ),
       itemBuilder: (context, i) {
-        return InkWell(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => RestaurantPage(
-                    restID:
-                        topRestaurant.restaurants[i].restaurant.id.toString(),
-                    dummyimg: dummypics.dummyFoodPics[i],
-                  ),
-                ));
-          },
-          child: ItemCard(
-            restaurant: topRestaurant.restaurants[i].restaurant,
-            dummypics: dummypics.dummyFoodPics[i],
-            context: context,
-          ).py12().px24(),
-        );
+        return ItemCard(
+          restaurant: topRestaurant.restaurants[i].restaurant,
+          dummypics: dummypics.dummyFoodPics[i],
+          context: context,
+        ).py12().px24();
       });
 }

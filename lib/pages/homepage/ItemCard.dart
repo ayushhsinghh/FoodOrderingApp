@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:mytaste/model/topRestaurant.dart';
+import 'package:mytaste/pages/detailsPage/Restaurant_Details_Page.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class ItemCard extends StatefulWidget {
@@ -82,30 +83,42 @@ class _ItemCardState extends State<ItemCard> {
               child: Column(
                 children: [
                   // ! Circle Image Here
-                  CachedNetworkImage(
-                    imageUrl: widget.restaurant.thumb != ""
-                        ? widget.restaurant.thumb
-                        : widget.dummypics,
-                    imageBuilder: (context, imageProvider) => Container(
-                      width: 100,
-                      height: 100,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          image: imageProvider,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ).p12(),
-                    placeholder: (context, url) => Container(
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RestaurantPage(
+                                    restID: widget.restaurant.id.toString(),
+                                    dummyimg: widget.dummypics,
+                                    isFav: _isFav,
+                                  )));
+                    },
+                    child: CachedNetworkImage(
+                      imageUrl: widget.restaurant.thumb != ""
+                          ? widget.restaurant.thumb
+                          : widget.dummypics,
+                      imageBuilder: (context, imageProvider) => Container(
                         width: 100,
                         height: 100,
-                        child: CircularProgressIndicator(
-                          backgroundColor: Colors.brown[100],
-                          semanticsLabel: "Waiting",
-                          semanticsValue: "waiting",
-                        )),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: imageProvider,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ).p12(),
+                      placeholder: (context, url) => Container(
+                          width: 100,
+                          height: 100,
+                          child: CircularProgressIndicator(
+                            backgroundColor: Colors.brown[100],
+                            semanticsLabel: "Waiting",
+                            semanticsValue: "waiting",
+                          )),
+                      errorWidget: (context, url, error) => Icon(Icons.error),
+                    ),
                   ),
                   Text(
                     widget.restaurant.name.length >= 20

@@ -15,7 +15,7 @@ class LoginPage extends StatefulWidget {
     try {
       final auth = Provider.of<AuthBase>(context, listen: false);
       final user = await auth.signInEmail(email, passwd);
-      if (user.uid != null) {
+      if (user != null) {
         return true;
       }
       return false;

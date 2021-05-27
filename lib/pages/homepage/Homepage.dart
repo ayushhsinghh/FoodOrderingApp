@@ -11,6 +11,7 @@ import 'package:mytaste/model/topRestaurant.dart';
 import 'package:mytaste/service/httpService.dart';
 import 'package:mytaste/utils/Drawer.dart';
 import 'package:mytaste/utils/locator.dart';
+import 'package:provider/provider.dart';
 import 'HomePageShimmer.dart';
 import 'Hometitle.dart';
 import 'homeheading.dart';
@@ -34,6 +35,12 @@ class _HomePageState extends State<HomePage> {
   ScrollController _scrollController = new ScrollController();
   bool closeTop = false;
   @override
+  void dispose() {
+    _scrollController.removeListener(() {});
+    super.dispose();
+  }
+
+  @override
   void initState() {
     super.initState();
     getRestData();
@@ -49,7 +56,9 @@ class _HomePageState extends State<HomePage> {
     await Future.delayed(Duration(seconds: 2));
     final jsonfile = await rootBundle.loadString("assets/json/dummypics.json");
     dummypics = dummypicsFromJson(jsonfile);
-    setState(() {});
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   // Funtion to get Location Latitute and Longitude
@@ -75,9 +84,11 @@ class _HomePageState extends State<HomePage> {
         "https://maps.googleapis.com/maps/api/geocode/json",
         queryParameters: queryParams,
         options: Options(contentType: 'application/json'));
-    setState(() {
-      geoCoding = geoCodingFromJson(response.toString());
-    });
+    if (mounted) {
+      setState(() {
+        geoCoding = geoCodingFromJson(response.toString());
+      });
+    }
   }
 
   // Function to get Restuarant Data from API
@@ -97,11 +108,13 @@ class _HomePageState extends State<HomePage> {
       });
 
       if (response.statusCode == 200) {
-        setState(() {
-          // print("$longitude and $latitude ");
-          topRestaurant = topRestaurantFromJson(response.toString());
-          // print(topRestaurant.restaurants[0].restaurant.name);
-        });
+        if (mounted) {
+          setState(() {
+            // print("$longitude and $latitude ");
+            topRestaurant = topRestaurantFromJson(response.toString());
+            // print(topRestaurant.restaurants[0].restaurant.name);
+          });
+        }
       } else {
         print("There is some problem status code not 200");
       }

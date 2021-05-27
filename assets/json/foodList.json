@@ -1,0 +1,673 @@
+{
+    "items": [
+        {
+            "desc": "[Gluten Free] Fried paneer with onions, capsicum, in spicy kadhai gravy.",
+            "id": "ctl_275699188",
+            "name": "Kadhai Paneer",
+            "price": 375,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/b25/51dc41ec1514e6226d73ade317dc9b25.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Tandoori roasted paneer in tomato kadhai gravy.",
+            "id": "ctl_275699186",
+            "name": "Paneer Tikka Masala",
+            "price": 390,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/dcd/2432eba90a2ffe0173f35dca86c27dcd.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten Free] Traditional rice served with raita or salad.",
+            "id": "ctl_164198663",
+            "name": "Chicken Dum Biryani",
+            "price": 320,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/78a/9dc157124f3d4615547f47952f39178a.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Paneer in rich tomato gravy with cream.",
+            "id": "ctl_275699184",
+            "name": "Paneer Buttter Masala",
+            "price": 390,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/740/a91d41b70c5658d3a4902083b8a2a740.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "",
+            "id": "ctl_164198560",
+            "name": "Chilly Paneer",
+            "price": 325,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/29b/128fce1a3e72ab0d53978dce0883f29b.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten Free] Traditional rice served with raita or salad.",
+            "id": "ctl_164198655",
+            "name": "Veg Dum Biryani",
+            "price": 320,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/cf5/f94bcc71a889b6203bbc4966395c9cf5.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten] Chicken pieces marinated with yogurt and spices.",
+            "id": "ctl_164198554",
+            "name": "Tandoori Chicken",
+            "price": 320,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/c22/4ca9ad94401456845ba976c6cfbcac22.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Chicken pieces cooked in spicy tomato and brown onion gravy flavored with desi mirch.",
+            "id": "ctl_164198619",
+            "name": "Lahori Chicken",
+            "price": 450,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/0ce/6c710892cada23f7de50f49f882310ce.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Tandoori chicken cooked in rich tomato gravy.",
+            "id": "ctl_164198615",
+            "name": "Butter Chicken",
+            "price": 450,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/1f2/fa66525c1b83a5920cf4c0753836d1f2.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten Free]  Black lentils with white butter.",
+            "id": "ctl_164198597",
+            "name": "Dal Makhani",
+            "price": 350,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/9bb/ec1edc57fad657488a91badc6fec29bb.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Boneless grilled chicken in tomato gravy.",
+            "id": "ctl_164198616",
+            "name": "Murgh Tikka Masala",
+            "price": 450,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/545/e950e30e50e40573449920480c05e545.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "",
+            "id": "ctl_164198565",
+            "name": "Chilly Chicken",
+            "price": 350,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/192/2caae314c03a33e578237cd7f7378192.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Flavorful Punjabi dish: whole and minced chicken in a spiced curry,  with yogurt and whole red chilies.",
+            "id": "ctl_164198621",
+            "name": "Murgh Rara",
+            "price": 450,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/7fd/676f0296307b0fc5922f4f12733b17fd.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "",
+            "id": "ctl_164198578",
+            "name": "Veg Manchurian",
+            "price": 325,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/573/b992b0d215b81db70f6384a79d61b573.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "",
+            "id": "ctl_164198567",
+            "name": "Chicken Lollipop Dry",
+            "price": 325,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/246/b7627197125c6a8d55f07e9e9f128246.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Minced and whole mutton in kadhai gravy.",
+            "id": "ctl_164198624",
+            "name": "Rara Gosht Punjabi",
+            "price": 500,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/acc/9ce581d80849f232ac38b1c3c78a2acc.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "",
+            "id": "ctl_164198674",
+            "name": "Chilly Garlic Noodles",
+            "price": 300,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/edb/6ea3ff51fcea619598a7a86096886edb.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        
+        {
+            "desc": "[Gluten Free] Paneer and nut stuffed potatoes in tomato gravy.",
+            "id": "ctl_164198583",
+            "name": "Aloo Dum Banarsi",
+            "price": 390,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/b41/531ef3f58f59c315d563c01b2118cb41.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        
+        {
+            "desc": "[Gluten Free] Traditional rice served with raita or salad.",
+            "id": "ctl_164198664",
+            "name": "Mutton Dum Biryani",
+            "price": 320,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/b31/aed81716f4c6f6dc3a633b648af07b31.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        
+        {
+            "desc": "[Gluten] Cubed paneer with capsicum, onions and tomatoes.",
+            "id": "ctl_164198539",
+            "name": "Paneer Tikka",
+            "price": 395,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/c11/2060f4a0f9db7eb7b00d0286660fbc11.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Home–style chicken in chopped onion gravy.",
+            "id": "ctl_164198618",
+            "name": "Chicken Curry",
+            "price": 450,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/7fd/676f0296307b0fc5922f4f12733b17fd.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Paneer in spinach puree.",
+            "id": "ctl_275699185",
+            "name": "Palak Paneer",
+            "price": 375,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/3bb/118f9eb7a01e896d2bce2f412fb943bb.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        
+        {
+            "desc": "[Gluten] Chicken coated in cheese, cream and cashews.",
+            "id": "ctl_164198551",
+            "name": "Murgh Malai Tikka",
+            "price": 425,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/50b/012a0ad47a82a18523bac4290388f50b.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "With brown onion gravy.",
+            "id": "ctl_164198625",
+            "name": "Bhuna Gosht",
+            "price": 500,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/acc/9ce581d80849f232ac38b1c3c78a2acc.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "",
+            "id": "ctl_164198673",
+            "name": "Hakka Noodles",
+            "price": 300,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/21b/261396a7a3371c94002b5449e917d21b.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        
+        
+        
+        
+        {
+            "desc": "[Gluten Free] Fried paneer with onions, capsicum, in spicy kadhai gravy.",
+            "id": "ctl_275699188",
+            "name": "Kadhai Paneer",
+            "price": 375,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/b25/51dc41ec1514e6226d73ade317dc9b25.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Tandoori roasted paneer in tomato kadhai gravy.",
+            "id": "ctl_275699186",
+            "name": "Paneer Tikka Masala",
+            "price": 390,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/dcd/2432eba90a2ffe0173f35dca86c27dcd.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        
+        {
+            "desc": "[Gluten Free] Fried paneer with onions, capsicum, in spicy kadhai gravy.",
+            "id": "ctl_275699188",
+            "name": "Kadhai Paneer",
+            "price": 375,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/b25/51dc41ec1514e6226d73ade317dc9b25.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Tandoori roasted paneer in tomato kadhai gravy.",
+            "id": "ctl_275699186",
+            "name": "Paneer Tikka Masala",
+            "price": 390,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/dcd/2432eba90a2ffe0173f35dca86c27dcd.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten Free] Traditional rice served with raita or salad.",
+            "id": "ctl_164198663",
+            "name": "Chicken Dum Biryani",
+            "price": 320,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/78a/9dc157124f3d4615547f47952f39178a.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Paneer in rich tomato gravy with cream.",
+            "id": "ctl_275699184",
+            "name": "Paneer Buttter Masala",
+            "price": 390,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/740/a91d41b70c5658d3a4902083b8a2a740.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "",
+            "id": "ctl_164198560",
+            "name": "Chilly Paneer",
+            "price": 325,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/29b/128fce1a3e72ab0d53978dce0883f29b.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten Free] Traditional rice served with raita or salad.",
+            "id": "ctl_164198655",
+            "name": "Veg Dum Biryani",
+            "price": 320,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/cf5/f94bcc71a889b6203bbc4966395c9cf5.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten] Chicken pieces marinated with yogurt and spices.",
+            "id": "ctl_164198554",
+            "name": "Tandoori Chicken",
+            "price": 320,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/c22/4ca9ad94401456845ba976c6cfbcac22.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Chicken pieces cooked in spicy tomato and brown onion gravy flavored with desi mirch.",
+            "id": "ctl_164198619",
+            "name": "Lahori Chicken",
+            "price": 450,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/0ce/6c710892cada23f7de50f49f882310ce.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Tandoori chicken cooked in rich tomato gravy.",
+            "id": "ctl_164198615",
+            "name": "Butter Chicken",
+            "price": 450,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/1f2/fa66525c1b83a5920cf4c0753836d1f2.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten Free]  Black lentils with white butter.",
+            "id": "ctl_164198597",
+            "name": "Dal Makhani",
+            "price": 350,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/9bb/ec1edc57fad657488a91badc6fec29bb.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Boneless grilled chicken in tomato gravy.",
+            "id": "ctl_164198616",
+            "name": "Murgh Tikka Masala",
+            "price": 450,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/545/e950e30e50e40573449920480c05e545.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "",
+            "id": "ctl_164198565",
+            "name": "Chilly Chicken",
+            "price": 350,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/192/2caae314c03a33e578237cd7f7378192.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Flavorful Punjabi dish: whole and minced chicken in a spiced curry,  with yogurt and whole red chilies.",
+            "id": "ctl_164198621",
+            "name": "Murgh Rara",
+            "price": 450,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/7fd/676f0296307b0fc5922f4f12733b17fd.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+      
+        {
+            "desc": "[Gluten Free] Fried paneer with onions, capsicum, in spicy kadhai gravy.",
+            "id": "ctl_275699188",
+            "name": "Kadhai Paneer",
+            "price": 375,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/b25/51dc41ec1514e6226d73ade317dc9b25.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Tandoori roasted paneer in tomato kadhai gravy.",
+            "id": "ctl_275699186",
+            "name": "Paneer Tikka Masala",
+            "price": 390,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/dcd/2432eba90a2ffe0173f35dca86c27dcd.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten Free] Traditional rice served with raita or salad.",
+            "id": "ctl_164198663",
+            "name": "Chicken Dum Biryani",
+            "price": 320,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/78a/9dc157124f3d4615547f47952f39178a.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Paneer in rich tomato gravy with cream.",
+            "id": "ctl_275699184",
+            "name": "Paneer Buttter Masala",
+            "price": 390,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/740/a91d41b70c5658d3a4902083b8a2a740.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "",
+            "id": "ctl_164198560",
+            "name": "Chilly Paneer",
+            "price": 325,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/29b/128fce1a3e72ab0d53978dce0883f29b.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten Free] Traditional rice served with raita or salad.",
+            "id": "ctl_164198655",
+            "name": "Veg Dum Biryani",
+            "price": 320,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/cf5/f94bcc71a889b6203bbc4966395c9cf5.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        
+        {
+            "desc": "[Gluten Free] Fried paneer with onions, capsicum, in spicy kadhai gravy.",
+            "id": "ctl_275699188",
+            "name": "Kadhai Paneer",
+            "price": 375,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/b25/51dc41ec1514e6226d73ade317dc9b25.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Tandoori roasted paneer in tomato kadhai gravy.",
+            "id": "ctl_275699186",
+            "name": "Paneer Tikka Masala",
+            "price": 390,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/dcd/2432eba90a2ffe0173f35dca86c27dcd.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten Free] Traditional rice served with raita or salad.",
+            "id": "ctl_164198663",
+            "name": "Chicken Dum Biryani",
+            "price": 320,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/78a/9dc157124f3d4615547f47952f39178a.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Paneer in rich tomato gravy with cream.",
+            "id": "ctl_275699184",
+            "name": "Paneer Buttter Masala",
+            "price": 390,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/740/a91d41b70c5658d3a4902083b8a2a740.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "",
+            "id": "ctl_164198560",
+            "name": "Chilly Paneer",
+            "price": 325,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/29b/128fce1a3e72ab0d53978dce0883f29b.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten Free] Traditional rice served with raita or salad.",
+            "id": "ctl_164198655",
+            "name": "Veg Dum Biryani",
+            "price": 320,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/cf5/f94bcc71a889b6203bbc4966395c9cf5.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten] Chicken pieces marinated with yogurt and spices.",
+            "id": "ctl_164198554",
+            "name": "Tandoori Chicken",
+            "price": 320,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/c22/4ca9ad94401456845ba976c6cfbcac22.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Chicken pieces cooked in spicy tomato and brown onion gravy flavored with desi mirch.",
+            "id": "ctl_164198619",
+            "name": "Lahori Chicken",
+            "price": 450,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/0ce/6c710892cada23f7de50f49f882310ce.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Tandoori chicken cooked in rich tomato gravy.",
+            "id": "ctl_164198615",
+            "name": "Butter Chicken",
+            "price": 450,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/1f2/fa66525c1b83a5920cf4c0753836d1f2.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten Free]  Black lentils with white butter.",
+            "id": "ctl_164198597",
+            "name": "Dal Makhani",
+            "price": 350,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/9bb/ec1edc57fad657488a91badc6fec29bb.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Boneless grilled chicken in tomato gravy.",
+            "id": "ctl_164198616",
+            "name": "Murgh Tikka Masala",
+            "price": 450,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/545/e950e30e50e40573449920480c05e545.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "",
+            "id": "ctl_164198565",
+            "name": "Chilly Chicken",
+            "price": 350,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/192/2caae314c03a33e578237cd7f7378192.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Flavorful Punjabi dish: whole and minced chicken in a spiced curry,  with yogurt and whole red chilies.",
+            "id": "ctl_164198621",
+            "name": "Murgh Rara",
+            "price": 450,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/7fd/676f0296307b0fc5922f4f12733b17fd.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "",
+            "id": "ctl_164198578",
+            "name": "Veg Manchurian",
+            "price": 325,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/573/b992b0d215b81db70f6384a79d61b573.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        
+        {
+            "desc": "[Gluten Free] Fried paneer with onions, capsicum, in spicy kadhai gravy.",
+            "id": "ctl_275699188",
+            "name": "Kadhai Paneer",
+            "price": 375,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/b25/51dc41ec1514e6226d73ade317dc9b25.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Tandoori roasted paneer in tomato kadhai gravy.",
+            "id": "ctl_275699186",
+            "name": "Paneer Tikka Masala",
+            "price": 390,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/dcd/2432eba90a2ffe0173f35dca86c27dcd.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten Free] Traditional rice served with raita or salad.",
+            "id": "ctl_164198663",
+            "name": "Chicken Dum Biryani",
+            "price": 320,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/78a/9dc157124f3d4615547f47952f39178a.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Paneer in rich tomato gravy with cream.",
+            "id": "ctl_275699184",
+            "name": "Paneer Buttter Masala",
+            "price": 390,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/740/a91d41b70c5658d3a4902083b8a2a740.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "",
+            "id": "ctl_164198560",
+            "name": "Chilly Paneer",
+            "price": 325,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/29b/128fce1a3e72ab0d53978dce0883f29b.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten Free] Traditional rice served with raita or salad.",
+            "id": "ctl_164198655",
+            "name": "Veg Dum Biryani",
+            "price": 320,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/cf5/f94bcc71a889b6203bbc4966395c9cf5.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten] Chicken pieces marinated with yogurt and spices.",
+            "id": "ctl_164198554",
+            "name": "Tandoori Chicken",
+            "price": 320,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/c22/4ca9ad94401456845ba976c6cfbcac22.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Chicken pieces cooked in spicy tomato and brown onion gravy flavored with desi mirch.",
+            "id": "ctl_164198619",
+            "name": "Lahori Chicken",
+            "price": 450,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/0ce/6c710892cada23f7de50f49f882310ce.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+       
+        {
+            "desc": "[Gluten Free] Fried paneer with onions, capsicum, in spicy kadhai gravy.",
+            "id": "ctl_275699188",
+            "name": "Kadhai Paneer",
+            "price": 375,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/b25/51dc41ec1514e6226d73ade317dc9b25.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Tandoori roasted paneer in tomato kadhai gravy.",
+            "id": "ctl_275699186",
+            "name": "Paneer Tikka Masala",
+            "price": 390,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/dcd/2432eba90a2ffe0173f35dca86c27dcd.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten Free] Traditional rice served with raita or salad.",
+            "id": "ctl_164198663",
+            "name": "Chicken Dum Biryani",
+            "price": 320,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/78a/9dc157124f3d4615547f47952f39178a.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Paneer in rich tomato gravy with cream.",
+            "id": "ctl_275699184",
+            "name": "Paneer Buttter Masala",
+            "price": 390,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/740/a91d41b70c5658d3a4902083b8a2a740.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "",
+            "id": "ctl_164198560",
+            "name": "Chilly Paneer",
+            "price": 325,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/29b/128fce1a3e72ab0d53978dce0883f29b.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten Free] Traditional rice served with raita or salad.",
+            "id": "ctl_164198655",
+            "name": "Veg Dum Biryani",
+            "price": 320,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/cf5/f94bcc71a889b6203bbc4966395c9cf5.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten] Chicken pieces marinated with yogurt and spices.",
+            "id": "ctl_164198554",
+            "name": "Tandoori Chicken",
+            "price": 320,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/c22/4ca9ad94401456845ba976c6cfbcac22.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Chicken pieces cooked in spicy tomato and brown onion gravy flavored with desi mirch.",
+            "id": "ctl_164198619",
+            "name": "Lahori Chicken",
+            "price": 450,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/0ce/6c710892cada23f7de50f49f882310ce.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Tandoori chicken cooked in rich tomato gravy.",
+            "id": "ctl_164198615",
+            "name": "Butter Chicken",
+            "price": 450,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/1f2/fa66525c1b83a5920cf4c0753836d1f2.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "[Gluten Free]  Black lentils with white butter.",
+            "id": "ctl_164198597",
+            "name": "Dal Makhani",
+            "price": 350,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/9bb/ec1edc57fad657488a91badc6fec29bb.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Boneless grilled chicken in tomato gravy.",
+            "id": "ctl_164198616",
+            "name": "Murgh Tikka Masala",
+            "price": 450,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/545/e950e30e50e40573449920480c05e545.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "",
+            "id": "ctl_164198565",
+            "name": "Chilly Chicken",
+            "price": 350,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/192/2caae314c03a33e578237cd7f7378192.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "Flavorful Punjabi dish: whole and minced chicken in a spiced curry,  with yogurt and whole red chilies.",
+            "id": "ctl_164198621",
+            "name": "Murgh Rara",
+            "price": 450,
+            "slug": "non-veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/7fd/676f0296307b0fc5922f4f12733b17fd.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        },
+        {
+            "desc": "",
+            "id": "ctl_164198578",
+            "name": "Veg Manchurian",
+            "price": 325,
+            "slug": "veg",
+            "thumb": "https://b.zmtcdn.com/data/dish_photos/573/b992b0d215b81db70f6384a79d61b573.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+        }
+    ]
+}

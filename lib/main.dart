@@ -1,10 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mytaste/Constant/Colors.dart';
 import 'package:mytaste/pages/DrawerPage/ProfilePage.dart';
 import 'package:mytaste/pages/LandingPage.dart';
 import 'package:mytaste/pages/LoginPage/Login.dart';
+import 'package:mytaste/pages/OrderPage.dart';
 import 'package:mytaste/pages/detailsPage/Restaurant_Details_Page.dart';
 import 'package:mytaste/service/firebase_auth.dart';
 import 'package:mytaste/utils/Routes.dart';
@@ -15,6 +17,7 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
   runApp(MyApp());
 }
 
@@ -42,6 +45,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.signUpRoute: (context) => SignUpPage(),
           MyRoutes.landingRoute: (context) => LandingPage(),
           MyRoutes.profileRoute: (context) => ProfilePage(),
+          MyRoutes.orderListRoute: (context) => OrderList(),
         },
       ),
     );

@@ -6,4 +6,5 @@ class MyRoutes {
   static String signUpRoute = "/signUp";
   static String landingRoute = "/landing";
   static String profileRoute = "/profile";
+  static String orderListRoute = "/orderList";
 }
