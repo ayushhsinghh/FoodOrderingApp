@@ -6,7 +6,7 @@
   <h3 align="center">MyTaste - Food Ordering App</h3>
 
   <p align="center">
-    Online Food Ordering with Flutter that uses Firebase , Google GeoCoding
+    Online Food Ordering with Flutter that uses Firebase
     <br>
     Project made with much  :heart: . Contains FirebaseAuth, FireStorage, Zomato API and Google Geocoding API!
     <br>
