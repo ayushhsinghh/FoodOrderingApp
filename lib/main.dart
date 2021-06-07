@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mytaste/Constant/Colors.dart';
+import 'package:mytaste/logic/CartProvider.dart';
+import 'package:mytaste/pages/CartPage.dart';
 import 'package:mytaste/pages/DrawerPage/ProfilePage.dart';
 import 'package:mytaste/pages/LandingPage.dart';
 import 'package:mytaste/pages/LoginPage/Login.dart';
+import 'package:mytaste/pages/OrderDone.dart';
 import 'package:mytaste/pages/OrderPage.dart';
 import 'package:mytaste/pages/detailsPage/Restaurant_Details_Page.dart';
 import 'package:mytaste/service/firebase_auth.dart';
@@ -26,8 +29,12 @@ GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Provider<AuthBase>(
-      create: (context) => Auth(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<CartProvider>(
+            create: (context) => CartProvider()),
+        Provider<AuthBase>(create: (context) => Auth()),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
@@ -46,6 +53,8 @@ class MyApp extends StatelessWidget {
           MyRoutes.landingRoute: (context) => LandingPage(),
           MyRoutes.profileRoute: (context) => ProfilePage(),
           MyRoutes.orderListRoute: (context) => OrderList(),
+          MyRoutes.cartRoute: (context) => CartPage(),
+          MyRoutes.orderDoneRoute: (context) => OrderDone(),
         },
       ),
     );

@@ -4,18 +4,17 @@ import 'package:lottie/lottie.dart';
 import 'package:mytaste/Constant/Colors.dart';
 import 'package:mytaste/service/firebase_auth.dart';
 import 'package:mytaste/utils/Routes.dart';
+import 'package:provider/provider.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({
     Key key,
-    this.auth,
   }) : super(key: key);
 
-  final AuthBase auth;
-
   Future<User> _createSignInEmail(
-      String email, String passwd, String name) async {
+      String email, String passwd, String name, BuildContext context) async {
     try {
+      final auth = Provider.of<AuthBase>(context, listen: false);
       final createUser = await auth.createSignInEmail(email, passwd, name);
       return createUser;
     } catch (e) {
@@ -155,7 +154,7 @@ class _State extends State<SignUpPage> {
                             print(_email.text);
                             print(_passwd.text);
                             check = await widget._createSignInEmail(
-                                _email.text, _passwd.text, _name.text);
+                                _email.text, _passwd.text, _name.text, context);
                             setState(() {});
                             if (check != null) {
                               ScaffoldMessenger.of(context)

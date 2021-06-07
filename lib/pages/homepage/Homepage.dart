@@ -11,7 +11,6 @@ import 'package:mytaste/model/topRestaurant.dart';
 import 'package:mytaste/service/httpService.dart';
 import 'package:mytaste/utils/Drawer.dart';
 import 'package:mytaste/utils/locator.dart';
-import 'package:provider/provider.dart';
 import 'HomePageShimmer.dart';
 import 'Hometitle.dart';
 import 'homeheading.dart';
@@ -35,11 +34,6 @@ class _HomePageState extends State<HomePage> {
   ScrollController _scrollController = new ScrollController();
   bool closeTop = false;
   @override
-  void dispose() {
-    _scrollController.removeListener(() {});
-    super.dispose();
-  }
-
   @override
   void initState() {
     super.initState();
@@ -84,6 +78,7 @@ class _HomePageState extends State<HomePage> {
         "https://maps.googleapis.com/maps/api/geocode/json",
         queryParameters: queryParams,
         options: Options(contentType: 'application/json'));
+
     if (mounted) {
       setState(() {
         geoCoding = geoCodingFromJson(response.toString());
@@ -124,6 +119,11 @@ class _HomePageState extends State<HomePage> {
   }
 
   final _advancedDrawerController = AdvancedDrawerController();
+
+  void dispose() {
+    _scrollController.removeListener(() {});
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
